@@ -341,6 +341,7 @@
     <copy todir="${dist}/sample">
       <fileset dir="sample"/>
     </copy>
+  	<zip destfile="${dist}/../${dist}.zip" basedir="${dist}"/>
     <!-- do not copy source jar
     <antcall target="copy_src_jar" />
     -->
