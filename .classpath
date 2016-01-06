@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="skeletons/jnismooth/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/dtdparser113.jar"/>
 	<classpathentry kind="lib" path="lib/jox116.jar"/>
-	<classpathentry sourcepath="E:/eclipse30/plugins/org.eclipse.platform.source.win32.win32.x86_3.0.0/src/org.eclipse.swt.win32_3.0.0/ws/win32/swtsrc.zip" kind="lib" path="lib/swt.jar"/>
-	<classpathentry kind="lib" path="lib/l2fprod-common.jar"/>
-	<classpathentry sourcepath="E:/eclipse30/plugins/org.eclipse.platform.source_3.0.0/src/org.eclipse.ui.forms_3.0.0/formssrc.zip" kind="lib" path="lib/forms.jar"/>
-	<classpathentry kind="lib" path="E:/eclipse30/plugins/org.eclipse.core.runtime_3.0.0/runtime.jar"/>
+	<classpathentry kind="lib" path="lib/swt.jar"/>
+	<classpathentry kind="lib" path="lib/l2fprod-common-all.jar"/>
+	<classpathentry kind="lib" path="lib/forms.jar"/>
 	<classpathentry kind="lib" path="lib/runtime.jar"/>
-	<classpathentry sourcepath="E:/eclipse30/plugins/org.eclipse.platform.source_3.0.0/src/org.eclipse.jface_3.0.0/jfacesrc.zip" kind="lib" path="lib/jface.jar"/>
+	<classpathentry kind="lib" path="lib/jface.jar"/>
+	<classpathentry kind="lib" path="lib/BrowserLauncher2-10.jar"/>
+	<classpathentry kind="lib" path="lib/riverlayout.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
