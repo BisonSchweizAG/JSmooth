@@ -27,12 +27,14 @@ See the original JSmooth's [manual](http://jsmooth.sourceforge.net/docs/jsmooth-
 
 ### 64bit support
 
-For 64bit support, just use one of the new `x64` skeletons:
+To create a 64bit executable, use one of the new `x64` skeletons:
 
 * `Autodownload Wrapper x64`
 * `Console Wrapper x64`
 * `Windowed Wrapper x64`
 * `WinService Wrapper x64`
+
+A 64bit executable needs a 64bit JRE.
 
 ### Autodownload wrapper silent JRE installation
 The `Autodownload Wrapper` skeleton has been enhanced:
