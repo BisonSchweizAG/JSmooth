@@ -1,3 +1,5 @@
+0.9.11
+	- forked 0.9.9-7 to github and added new features.
 0.9.9-7
 	- Changed network code so that download now uses the IE proxy
 	configuration.
