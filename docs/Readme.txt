@@ -42,15 +42,6 @@ Current release: @{RELEASEINFO}@
 
 4. License
 
-All the JSmooth project is distributed under the terms of the GNU
-General Public License. Please read the License.txt file that comes
+All the JSmooth project is distributed under the terms of the Apache License Version 2.0. Please read the LICENSE file that comes
 with the package.
 
-This license applies to all the files of the project, but not on the
-generated executable. This means that you are free to generate
-executable wrappers for proprietary software and distribute them
-without applying the terms of the GPL to them.
-
-Of course, this is the one and only exception. All other kind of
-distribution of any file of the JSmooth package must conform with the
-terms of the GNU General Public License.
