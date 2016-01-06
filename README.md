@@ -21,7 +21,7 @@ There's no additional UI for configuring the above features. You'll have to edit
 Dowload and extract the [latest release](https://github.com/BisonSchweizAG/JSmooth/releases) to a local folder.
 
 ## Using the software
-See the documentation of the original [JSmooth](http://jsmooth.sourceforge.net/docs/jsmooth-doc.html).
+See the original JSmooth's [manual](http://jsmooth.sourceforge.net/docs/jsmooth-doc.html).
 
 ## Additional features
 
