@@ -1602,16 +1602,7 @@ jni-enabled jsmooth wrapper.
 <sect1><title>License</title>
 
  <para>
-The JSmooth generator is distributed under the terms of the GNU
-General Public Licence. Please read the License.txt file that comes
-with the package. Alternatively, you can find additional information
-on the GNU GPL license on the <ulink url="http://www.gnu.org">GNU Web
-Site</ulink></para>
-
- <para>
-The generated executables are distributed under the terms of the GNU
-Library General Public Licence and as such do not constrain the
-licence of the Jar it may embed.</para>
+The JSmooth generator is distributed under the terms of the Apache Licence Version 2.0. Please read the LICENSE file that comes with the package.</para>
 
 </sect1>
 
@@ -1635,13 +1626,6 @@ JSmooth includes the DTDParser library. It is distributed under the terms of eit
 (http://www.kyz.uklinux.net/libmspack/). The licence is not exactly
 the LGPL but is OK with jsmooth usage.</para>
 
- <para>
- The autodownload skeleton uses the fltk library
- (http://www.fltk.org/). FLTK is provided under the terms of the GNU
- Library Public License, Version 2 with exceptions that allow for
- static linking.
-</para>
-
-</sect1>
+ </sect1>
 
 </article>
