@@ -24,7 +24,7 @@
 #include "StringUtils.h"
 #include <winnls.h>
 #include "FileUtils.h"
-#include "Process.h"
+#include "_Process.h"
 
 #include "SingleInstanceManager.h"
 

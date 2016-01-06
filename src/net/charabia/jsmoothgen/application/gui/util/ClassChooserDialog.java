@@ -28,6 +28,8 @@ import javax.swing.event.*;
 
 public class ClassChooserDialog extends javax.swing.JDialog
 {
+    private static final long serialVersionUID = 1L;
+
     JarEntryTreeNode m_root;
     
     private boolean m_valid = false;
@@ -51,6 +53,8 @@ public class ClassChooserDialog extends javax.swing.JDialog
     
     public class JarEntryTreeNode extends javax.swing.tree.DefaultMutableTreeNode
     {
+        private static final long serialVersionUID = 1L;
+
         public JarEntryTreeNode(String value)
         {
             super(value);

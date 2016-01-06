@@ -2,15 +2,15 @@
 # Makefile created by Dev-C++ 4.9.8.0
 
 RM   = rm -f
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = ${MINGW}/bin/${TARGET}-g++.exe
+CC   = ${MINGW}/bin/${TARGET}-gcc.exe
 WINDRES = windres.exe
 RES  = ConsoleWrapper_private.res
 OBJ  = main.o $(RES)
 LINKOBJ  = main.o $(RES)
-LIBS =  -L"/lib" -L"../commonjava" -L"../util-core" ../commonjava/CommonJava.a ../util-core/util-core.a 
+LIBS =  -static-libgcc -L"${MINGW}/lib" -L"../commonjava" -L"../util-core" ../commonjava/CommonJava.a ../util-core/util-core.a 
 INCS =  -I"/include"  -I"../commonjava"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" 
-CXXINCS =  -I"/include/c++"  -I"/include/c++/mingw32"  -I"/include/c++/backward"  -I"/include"  -I"../commonjava"  -I"$(JDK)/include"  -I"$(JDK)/include/win32"   -I../util-core
+CXXINCS = -I"$(MINGW)/include/c++"  -I"$(MINGW)/include/c++/mingw32"  -I"$(MINGW)/include/c++/backward"  -I"$(MINGW)/include"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" -I"../commonjava" -I"../util-core" -I"../util-net"
 BIN  = ConsoleWrapper.exe
 CXXFLAGS = $(CUSTOMFLAGS) $(CXXINCS) -DJDK="$(JDK)"
 CFLAGS = $(INCS) 
@@ -29,4 +29,4 @@ main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
 ConsoleWrapper_private.res: ConsoleWrapper_private.rc mainres.rc 
-	$(WINDRES) -i ConsoleWrapper_private.rc -I rc -o ConsoleWrapper_private.res -O coff 
+	$(WINDRES) -i ConsoleWrapper_private.rc -J rc -o ConsoleWrapper_private.res -O coff 

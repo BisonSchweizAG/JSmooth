@@ -20,18 +20,16 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.File;
-import java.util.jar.*;
+import java.awt.BorderLayout;
+import java.util.Vector;
+
+import net.charabia.jsmoothgen.application.JVMSearchElement;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.util.SortedEditableList;
 
 public class JVMSearchSequence extends Editor
 {
+    private static final long serialVersionUID = 1L;
     private SortedEditableList m_vmSearch = new SortedEditableList();
     
     public JVMSearchSequence()

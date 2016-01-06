@@ -1,14 +1,17 @@
 arguments=arg1 arg2 arg3
 mainclassname=SampleApplication
 classpath=
-jvmsearch=registry;jview;javahome;jrepath;jdkpath;exepath;
-minversion=1.1
+jvmsearch=customjavahome=BISON_JAVA;registry;jview;javahome;jrepath;jdkpath;exepath;
+minversion=1.8
 maxversion=
 currentdir=
 bundledvm=jre
 skel_Message=Java has not been found on your computer. Do you want to download it?
 skel_URL=http://www.java.com
-skel_DownloadURL=http://java.sun.com/update/1.5.0/jinstall-1_5_0-windows-i586.cab
+skel_DownloadURL=http://localhost:8080/autoupdate/setup.jar
+bskel_DownloadURL=file:\\c:\\xx\\putty.exe
+cskel_DownloadURL=file:..\\samplejar\\autodownload.redirect
+askel_DownloadURLParams=/s
 javapropertiescount=1
 javaproperty_name_0=nom1
 javaproperty_value_0=valeur1

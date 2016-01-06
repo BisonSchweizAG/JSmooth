@@ -3,15 +3,15 @@
 
 RM   = rm -f
 #cmd /C DEL
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = ${MINGW}/bin/${TARGET}-g++.exe
+CC   = ${MINGW}/bin/${TARGET}-gcc.exe
 WINDRES = windres.exe
 RES  = winservice_private.res
 OBJ  = main.o $(RES)
 LINKOBJ  = WinService.o main.o $(RES)
-LIBS =  -L"/lib" -L"../commonjava" -L"../util-core" ../commonjava/CommonJava.a ../util-core/util-core.a 
+LIBS =  -static-libgcc -L"${MINGW}/lib" -L"../commonjava" -L"../util-core" ../commonjava/CommonJava.a ../util-core/util-core.a 
 INCS =  -I"/include" -I"../util-core"  -I"../commonjava"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" 
-CXXINCS =  -I"/include/c++"  -I"/include/c++/mingw32"  -I"/include/c++/backward"  -I"/include"  -I"../commonjava"  -I"$(JDK)/include"  -I"$(JDK)/include/win32"   -I../util-core
+CXXINCS = -I"$(MINGW)/include/c++"  -I"$(MINGW)/include/c++/mingw32"  -I"$(MINGW)/include/c++/backward"  -I"$(MINGW)/include"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" -I"../commonjava" -I"../util-core" -I"../util-net"
 BIN  = winservice.exe
 CXXFLAGS = $(CUSTOMFLAGS) $(CXXINCS) -DJDK="$(JDK)"
 CFLAGS = $(INCS) 
@@ -21,7 +21,7 @@ CFLAGS = $(INCS)
 all: all-before winservice.exe all-after
 
 clean: clean-custom
-	$(RM) $(OBJ) $(BIN) winservice_private.res
+	$(RM) $(OBJ) $(BIN) winservice.o winservice_private.res
 
 $(BIN): $(LINKOBJ)  ../commonjava/CommonJava.a
 	$(CPP) $(LINKOBJ) -o "winservice.exe" $(LIBS)
@@ -30,4 +30,4 @@ main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
 winservice_private.res: winservice_private.rc mainres.rc 
-	$(WINDRES) -i winservice_private.rc -I rc -o winservice_private.res -O coff 
+	$(WINDRES) -i winservice_private.rc -J rc -o winservice_private.res -O coff 

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\jnismooth\jnismooth.jar" />
+    <None Include="..\samplejar\sample.jar" />
+    <None Include="..\samplejar\sample.props" />
+    <None Include="autodownload.skel" />
+    <None Include="autodownload64.skel" />
+    <None Include="customdownload.skel" />
+    <None Include="customdownload64.skel" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\commonjava\global.cpp" />
+    <ClCompile Include="..\commonjava\JArgs.cpp" />
+    <ClCompile Include="..\commonjava\JavaMachineManager.cpp" />
+    <ClCompile Include="..\commonjava\JavaProperty.cpp" />
+    <ClCompile Include="..\commonjava\JClassProxy.cpp" />
+    <ClCompile Include="..\commonjava\JMethodCaller.cpp" />
+    <ClCompile Include="..\commonjava\JniSmooth.cpp" />
+    <ClCompile Include="..\commonjava\JVMBase.cpp" />
+    <ClCompile Include="..\commonjava\JVMEnvVarLookup.cpp" />
+    <ClCompile Include="..\commonjava\JVMRegistryLookup.cpp" />
+    <ClCompile Include="..\commonjava\MSJViewLauncher.cpp" />
+    <ClCompile Include="..\commonjava\Properties.cpp" />
+    <ClCompile Include="..\commonjava\ResourceManager.cpp" />
+    <ClCompile Include="..\commonjava\SunJVMDLL.cpp" />
+    <ClCompile Include="..\commonjava\SunJVMExe.cpp" />
+    <ClCompile Include="..\commonjava\SunJVMLauncher.cpp" />
+    <ClCompile Include="..\commonjava\Version.cpp" />
+    <ClCompile Include="..\util-core\DebugConsole.cpp" />
+    <ClCompile Include="..\util-core\FileUtils.cpp" />
+    <ClCompile Include="..\util-core\Log.cpp" />
+    <ClCompile Include="..\util-core\SingleInstanceManager.cpp" />
+    <ClCompile Include="..\util-core\StringUtils.cpp" />
+    <ClCompile Include="..\util-core\Thread.cpp" />
+    <ClCompile Include="..\util-core\_Process.cpp" />
+    <ClCompile Include="..\util-net\downloadgui.cpp" />
+    <ClCompile Include="..\util-net\HttpClient.cpp" />
+    <ClCompile Include="..\util-net\URL.cpp" />
+    <ClCompile Include="..\util-net\WinHttpClient.cpp" />
+    <ClCompile Include="execexe.cpp" />
+    <ClCompile Include="execinfogui.cpp" />
+    <ClCompile Include="httpdownload.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\commonjava\JArgs.h" />
+    <ClInclude Include="..\commonjava\JavaMachineManager.h" />
+    <ClInclude Include="..\commonjava\JavaProperty.h" />
+    <ClInclude Include="..\commonjava\JClassProxy.h" />
+    <ClInclude Include="..\commonjava\JMethodCaller.h" />
+    <ClInclude Include="..\commonjava\JniSmooth.h" />
+    <ClInclude Include="..\commonjava\JVMBase.h" />
+    <ClInclude Include="..\commonjava\JVMEnvVarLookup.h" />
+    <ClInclude Include="..\commonjava\JVMRegistryLookup.h" />
+    <ClInclude Include="..\commonjava\MSJViewLauncher.h" />
+    <ClInclude Include="..\commonjava\Properties.h" />
+    <ClInclude Include="..\commonjava\ResourceManager.h" />
+    <ClInclude Include="..\commonjava\SunJVMDLL.h" />
+    <ClInclude Include="..\commonjava\SunJVMExe.h" />
+    <ClInclude Include="..\commonjava\SunJVMLauncher.h" />
+    <ClInclude Include="..\commonjava\Version.h" />
+    <ClInclude Include="..\util-core\DebugConsole.h" />
+    <ClInclude Include="..\util-core\FileUtils.h" />
+    <ClInclude Include="..\util-core\Log.h" />
+    <ClInclude Include="..\util-core\SingleInstanceManager.h" />
+    <ClInclude Include="..\util-core\StringUtils.h" />
+    <ClInclude Include="..\util-core\Thread.h" />
+    <ClInclude Include="..\util-core\_Process.h" />
+    <ClInclude Include="..\util-net\downloadgui.h" />
+    <ClInclude Include="..\util-net\HttpClient.h" />
+    <ClInclude Include="..\util-net\URL.h" />
+    <ClInclude Include="..\util-net\WinHttpClient.h" />
+    <ClInclude Include="execexe.h" />
+    <ClInclude Include="execinfogui.h" />
+    <ClInclude Include="httpdownload.h" />
+    <ClInclude Include="JWrap_private.h" />
+    <ClInclude Include="..\commonjava\common.h" />
+    <ClInclude Include="Resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="JWrap.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mainres.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\samplejar\sample.manifest" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{84A7C6EF-D1DE-4235-80DD-1A959E6A2152}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>autodownload</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>c:\prg\jdk8\include;c:\prg\jdk8\include\win32;$(ProjectDir)\..\util-core;$(ProjectDir)\..\util-net;$(ProjectDir)\..\commonjava;$(IncludePath)</IncludePath>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>c:\prg\jdk8\include;c:\prg\jdk8\include\win32;$(ProjectDir)\..\util-core;$(ProjectDir)\..\util-net;$(ProjectDir)\..\commonjava;$(IncludePath)</IncludePath>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_USE_WINAPI_FAMILY_DESKTOP_APP</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;shell32.lib;Setupapi.lib;ws2_32.lib;wininet.lib;Comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_USE_WINAPI_FAMILY_DESKTOP_APP</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;shell32.lib;Setupapi.lib;ws2_32.lib;wininet.lib;Comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

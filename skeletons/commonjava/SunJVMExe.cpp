@@ -22,7 +22,7 @@
 
 #include <vector>
 #include <string>
-#include "Process.h"
+#include "_Process.h"
 #include "FileUtils.h"
 
 SunJVMExe::SunJVMExe(const std::string& jrehome)
@@ -50,7 +50,16 @@ bool SunJVMExe::run(const std::string& mainclass, bool useconsole)
 
   execv.push_back(StringUtils::requoteForCommandLine(lookUpExecutable(useconsole)));
 
-  if (m_maxHeap > 0)
+   if (m_vmParameter != "")
+    {
+      std::vector<std::string> vmParameter = StringUtils::split(m_vmParameter, " ", " ", false);
+      for (std::vector<std::string>::iterator i=vmParameter.begin(); i != vmParameter.end(); i++)
+      {
+        execv.push_back(*i);
+      }
+    }
+    
+   if (m_maxHeap > 0)
     {
       if ((m_version.getMajor()==1)&&(m_version.getMinor()==1))
 	execv.push_back("-mx" + StringUtils::toString(m_maxHeap));

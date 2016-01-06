@@ -20,6 +20,9 @@
 
 #include "MSJViewLauncher.h"
 
+#undef max
+#undef min
+
 bool MSJViewLauncher::runProc(ResourceManager& resource, bool noConsole)
 {
       DEBUG("Running JVIEW new process");

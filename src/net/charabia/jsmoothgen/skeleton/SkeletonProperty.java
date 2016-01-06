@@ -1,7 +1,7 @@
 /*
  * SkeletonProperty.java
  *
- * Created on 13 août 2003, 18:53
+ * Created on 13 august 2003, 18:53
  */
 
 package net.charabia.jsmoothgen.skeleton;

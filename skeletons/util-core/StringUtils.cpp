@@ -384,3 +384,30 @@ std::string StringUtils::sizeToJavaString(std::string size)
   else
     return sizeToJavaString(StringUtils::parseInt(size));
 }
+
+bool StringUtils::startsWith(std::string const & value, std::string const & starting)
+{
+	if (starting.size() > value.size()) return false;
+	return std::equal(starting.begin(), starting.end(), value.begin());
+}
+
+bool StringUtils::endsWith(std::string const & value, std::string const & ending)
+{
+	if (ending.size() > value.size()) return false;
+	return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
+}
+
+std::string StringUtils::rtrim(const std::string s) {
+	std::string str = s;
+	while (true){
+		size_t endpos = str.find_last_of(" \t\r\n");
+		if (endpos == str.size() - 1)
+		{
+			str = str.substr(0, endpos);
+		}
+		else {
+			break;
+		}
+	}
+	return str;
+}

@@ -20,84 +20,72 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.File;
-import java.util.jar.*;
+import java.awt.BorderLayout;
 
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import javax.swing.JFileChooser;
 
-public class ClassPath extends Editor
-{
-    private JFileChooser m_jarLocFileChooser = new JFileChooser();
-    private EditableListFileEditor m_fileeditor = new EditableListFileEditor();
-    private SortedEditableList m_list = new SortedEditableList() {
-	    protected void modelChanged()
-	    {
-		ClassPath.this.updateModel();
-	    }
-	};
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.util.EditableListFileEditor;
+import net.charabia.jsmoothgen.application.gui.util.GenericFileFilter;
+import net.charabia.jsmoothgen.application.gui.util.SortedEditableList;
 
-    public ClassPath()
-    {
-	m_jarLocFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-	m_jarLocFileChooser.setMultiSelectionEnabled(true);
-	GenericFileFilter filter = new GenericFileFilter("Zip, Jar, or directories");
-	filter.addSuffix("jar");
-	filter.addSuffix("zip");
-	m_jarLocFileChooser.addChoosableFileFilter(filter);
-	m_fileeditor.setFileChooser(m_jarLocFileChooser);
-	m_list.setEditor(m_fileeditor);
+public class ClassPath extends Editor {
+  private static final long serialVersionUID = 1L;
+  private JFileChooser m_jarLocFileChooser = new JFileChooser();
+  private EditableListFileEditor m_fileeditor = new EditableListFileEditor();
+  private SortedEditableList m_list = new SortedEditableList() {
+    private static final long serialVersionUID = 1L;
 
-	setLayout(new BorderLayout());
-	add(BorderLayout.CENTER, m_list);
+    protected void modelChanged() {
+      ClassPath.this.updateModel();
     }
-    
-    public void dataChanged()
-    {
-	if (getBaseDir() != null)
-	    {
-		m_jarLocFileChooser.setCurrentDirectory(getBaseDir());
-	    }
+  };
 
-	String[] cp = m_model.getClassPath();
-	if (cp == null)
-	    m_list.setData(new Object[0]);
-	else
-	    m_list.setData((Object[])cp);
+  public ClassPath() {
+    m_jarLocFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+    m_jarLocFileChooser.setMultiSelectionEnabled(true);
+    GenericFileFilter filter = new GenericFileFilter("Zip, Jar, or directories");
+    filter.addSuffix("jar");
+    filter.addSuffix("zip");
+    m_jarLocFileChooser.addChoosableFileFilter(filter);
+    m_fileeditor.setFileChooser(m_jarLocFileChooser);
+    m_list.setEditor(m_fileeditor);
+
+    setLayout(new BorderLayout());
+    add(BorderLayout.CENTER, m_list);
+  }
+
+  public void dataChanged() {
+    if (getBaseDir() != null) {
+      m_jarLocFileChooser.setCurrentDirectory(getBaseDir());
     }
 
-    public void updateModel()
-    {
-	Object[] cpels = m_list.getData();
-	String[] cp = new String[cpels.length];
-	for (int i=0; i<cp.length; i++)
-	    {
-		cp[i] = cpels[i].toString();
-	    }
-	m_model.setClassPath(cp);
-    }
+    String[] cp = m_model.getClassPath();
+    if (cp == null)
+      m_list.setData(new Object[0]);
+    else
+      m_list.setData((Object[])cp);
+  }
 
-    public String getLabel()
-    {
-	return "CLASSPATH_LABEL";
+  public void updateModel() {
+    Object[] cpels = m_list.getData();
+    String[] cp = new String[cpels.length];
+    for (int i = 0; i < cp.length; i++) {
+      cp[i] = cpels[i].toString();
     }
+    m_model.setClassPath(cp);
+  }
 
-    public String getDescription()
-    {
-	return "CLASSPATH_HELP";
-    }
-        
-    public boolean needsBigSpace()
-    {
-	return true;
-    }
+  public String getLabel() {
+    return "CLASSPATH_LABEL";
+  }
+
+  public String getDescription() {
+    return "CLASSPATH_HELP";
+  }
+
+  public boolean needsBigSpace() {
+    return true;
+  }
 
 }
-

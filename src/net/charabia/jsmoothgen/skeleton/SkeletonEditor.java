@@ -22,20 +22,25 @@
 /*
  * SkeletonEditor.java
  *
- * Created on 7 août 2003, 22:23
+ * Created on 7 august 2003, 22:23
  */
 
 package net.charabia.jsmoothgen.skeleton;
 
-import javax.swing.*;
-import javax.swing.table.*;
-import java.util.*;
-import java.io.*;
-import java.awt.*;
+import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.table.TableColumn;
 
 public class SkeletonEditor extends javax.swing.JFrame
 {
-	private SkeletonPropertyTableModel m_model = new SkeletonPropertyTableModel();
+	private static final long serialVersionUID = 1L;
+  private SkeletonPropertyTableModel m_model = new SkeletonPropertyTableModel();
 	
 	/** Creates new form SkeletonEditor */
 	public SkeletonEditor()

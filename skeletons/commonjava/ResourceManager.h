@@ -6,21 +6,22 @@
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
   version 2 of the License, or (at your option) any later version.
-  
+
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   Library General Public License for more details.
-  
+
   You should have received a copy of the GNU Library General Public
   License along with this library; if not, write to the Free
   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-  
+
 */
 
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
 
+#include <cstdio>
 #include <windows.h>
 #include <string>
 #include <vector>
@@ -34,10 +35,10 @@
  * Manages the executable resources associated to a Java
  * application. This class manages the resources that are used to
  * store the data associated to a java application. Those resources
- * are: 
- * - The JAR file, stored as a raw resource.  
+ * are:
+ * - The JAR file, stored as a raw resource.
  * - The Property file, stored as a raw resource.
- *  
+ *
  * The Property file contains an 8-bit text, as parsed and used by the
  * Properties class, which defines information relative to the java
  * application (for instance the name of the main class, the java
@@ -56,17 +57,17 @@ class ResourceManager
 
   int m_resourcePropsId;
   int m_resourceJarId;
-  std::string m_lastError;    
+  std::string m_lastError;
   HGLOBAL m_jarHandler;
   int m_jarSize;
   HGLOBAL m_jnismoothHandler;
   int m_jnismoothSize;
 
   std::vector<std::string> m_arguments;
-    
+
   std::vector<std::string> m_deleteOnFinalize;
   std::vector<JavaProperty> m_javaProperties;
-    
+
  public:
 
   static char * const KEY_MAINCLASSNAME;
@@ -80,8 +81,9 @@ class ResourceManager
   static char * const KEY_BUNDLEDVM;
   static char * const KEY_CURRENTDIR;
   static char * const KEY_EMBEDJAR;
+  static char * const KEY_JVMARGS;
 
-  /** 
+  /**
    * Constructs a ResourceManager which extract the jar and property
    * files from the resources defined by the given parameters.  The
    * resource are loaded from the resource type and resource names
@@ -90,7 +92,7 @@ class ResourceManager
    * @param category the resource type to look in
    * @param propsId the resource id, stored under the category type, for the property file
    * @param jarId the resource id, stored under the category type, for the jar file
-   */ 
+   */
   ResourceManager(std::string category, int propsId, int jarId, int jniId = -1);
 
   /**
@@ -101,7 +103,7 @@ class ResourceManager
    * @sa ResourceManager::saveJarInTempFile
    */
   ~ResourceManager();
-    
+
   /** Saves the jar in a temporary folder.  Extract the jar file
    * from the resource defined in the consructor, and saves it in
    * the temporary directory defined by the operating system.
@@ -121,7 +123,7 @@ class ResourceManager
    *  the program.
    *
    * @return the name of the main class
-   */ 
+   */
   std::string getMainName() const;
 
   /**
@@ -133,7 +135,7 @@ class ResourceManager
     {
       return m_lastError;
     }
-    
+
   /**
    * Retrieves a property value from the Properties resource defined
    * in the constructor.
@@ -158,12 +160,12 @@ class ResourceManager
 
   /**
    * Return the list of JavaProperty elements defined in the property
-   * resource. 
+   * resource.
    *
    * @return a vector of JavaProperty elements, or an empty vector if none are defined.
-   */ 
+   */
   const vector<JavaProperty>& getJavaProperties();
-    
+
   std::string getCurrentDirectory() const;
 
   bool useEmbeddedJar() const;
@@ -189,7 +191,7 @@ class ResourceManager
       result += buffer;
       return result;
     }
-    
+
 };
 
 

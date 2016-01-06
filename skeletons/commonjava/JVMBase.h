@@ -43,6 +43,7 @@ class JVMBase
   int                         m_maxHeap;
   int                         m_initialHeap;
   std::vector<std::string>    m_arguments;
+  std::string				  m_vmParameter;
   
  public:
   JVMBase();
@@ -53,6 +54,7 @@ class JVMBase
   void setInitialHeap(long size);
   void addArgument(const std::string& arg);
   void setArguments(const std::string& args);
+  void setVmParameter(std::string parameter);
 };
 
 

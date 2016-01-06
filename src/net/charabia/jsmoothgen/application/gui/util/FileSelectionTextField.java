@@ -32,6 +32,7 @@ import java.io.*;
 
 public class FileSelectionTextField extends javax.swing.JPanel
 {
+    private static final long serialVersionUID = 1L;
     private JButton           m_buttonFileSelection;
     private JFileChooser      m_fileChooser;
     private JTextField        m_filename;

@@ -20,17 +20,17 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.event.*;
-import java.util.*;
-import java.io.*;
-import se.datadosen.component.RiverLayout;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+import net.charabia.jsmoothgen.application.JSmoothModelBean;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.application.gui.util.HTMLPane;
 
 public class JSmoothInfo extends Editor implements JSmoothModelBean.SkeletonChangedListener
 {
+    private static final long serialVersionUID = 1L;
     //    private JEditorPane m_skeldesc = new JEditorPane("text/html","<html></html>");
     private HTMLPane m_skeldesc = new HTMLPane();
 

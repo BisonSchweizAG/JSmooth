@@ -29,22 +29,12 @@
 
 string url = "http://jsmooth.sf.net:9091/test1/test2&ici#123";
 
-#include <FL/Fl.H>
-
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Box.H>
-
-#include <FL/Fl_Double_Window.H>
-#include <FL/Fl_Tile.H>
-#include <FL/Fl_Progress.H>
-#include <FL/Fl_Browser.H>
-
-#include "downloadgui.h"
+//#include "downloadgui.h"
 
 #include <windows.h>
 #include <process.h>
 
-#include "httpdownload.h"
+//#include "httpdownload.h"
 
 #define DEBUG(x) _debugOutput(x)
 #define DEBUGWAITKEY() _debugWaitKey()
@@ -73,7 +63,7 @@ int main(int argc, char *argv[])
   //  string file = httpDownload("http://travel.state.gov/passport/forms/forms_847.html");
   //  string file = httpDownload("http://java.sun.com/products/plugin/autodl/jinstall-1_3_0_05-win.cab");
 
-  string file = httpDownload("ftp://ftp.free.fr/pub/freeplayer/Freeplayer-Win32-20050905.zip");
+  string file = "this_is_just_a_test";// httpDownload("ftp://ftp.free.fr/pub/freeplayer/Freeplayer-Win32-20050905.zip");
 
   //string file= httpDownload("http://downloads.sourceforge.net/filezilla/FileZilla_2_2_31_setup.exe?use_mirror=osdn");
 

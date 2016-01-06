@@ -317,6 +317,7 @@ void HttpClient::updateListeners(int current, int total)
 bool HttpClient::cancel()
 {
   m_cancelled = true;
+  return true;
 }
 
 bool HttpClient::isCancelled()

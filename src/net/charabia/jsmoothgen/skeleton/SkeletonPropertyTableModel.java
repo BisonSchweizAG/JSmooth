@@ -1,7 +1,7 @@
 /*
  * SkeletonPropertyTableModel.java
  *
- * Created on 14 août 2003, 22:12
+ * Created on 14 august 2003, 22:12
  */
 
 package net.charabia.jsmoothgen.skeleton;
@@ -13,7 +13,8 @@ import java.util.*;
  */
 public class SkeletonPropertyTableModel extends javax.swing.table.AbstractTableModel
 {
-	private Vector m_props = new Vector();
+	private static final long serialVersionUID = 1L;
+  private Vector m_props = new Vector();
 	
 	/** Creates a new instance of SkeletonPropertyTableModel */
 	public SkeletonPropertyTableModel(SkeletonProperty[] props)

@@ -21,6 +21,7 @@
 #ifndef __STRINGUTILS_H_
 #define __STRINGUTILS_H_
 
+#include <cstdio>
 #include <string>
 #include <vector>
 #include <windows.h>
@@ -149,14 +150,17 @@ class StringUtils
    * @return a fixed copy of the string
    */
   static std::string requote(const string& str);
-  static std::string StringUtils::requoteForCommandLine(const string& str);
+  static std::string requoteForCommandLine(const string& str);
   static std::string toLowerCase(const string& str);
 
   static std::string fixArgumentString(const std::string& arg);
 
   static std::string sizeToJavaString(int size);
   static std::string sizeToJavaString(std::string size);
-  
+
+  static bool startsWith(std::string const & value, std::string const & starting);
+  static bool endsWith(std::string const & value, std::string const & ending);
+  static std::string rtrim(const std::string s);
 };
 
 #endif

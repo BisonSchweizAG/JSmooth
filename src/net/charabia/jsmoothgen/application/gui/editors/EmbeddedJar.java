@@ -20,19 +20,19 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
 import java.io.File;
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+
+import javax.swing.AbstractAction;
+import javax.swing.JCheckBox;
+
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.application.gui.util.FileSelectionTextField;
+import net.charabia.jsmoothgen.application.gui.util.PanelLayout;
 
 public class EmbeddedJar extends Editor
 {
+    private static final long serialVersionUID = 1L;
     private JCheckBox m_checker = new JCheckBox();
     private FileSelectionTextField m_selector = new FileSelectionTextField();
  
@@ -43,7 +43,9 @@ public class EmbeddedJar extends Editor
 	add(m_selector);
 
 	m_checker.setAction(new AbstractAction(Main.local("EMBEDDEDJAR_CHECKBOX")) {
-		public void actionPerformed(java.awt.event.ActionEvent e)
+		private static final long serialVersionUID = 1L;
+
+    public void actionPerformed(java.awt.event.ActionEvent e)
 		{
 // 		    System.out.println("Embedded jar, checkbox action");
 		    m_selector.setEnabled(m_checker.isSelected());

@@ -27,7 +27,8 @@ package net.charabia.jsmoothgen.application.gui;
 public class AboutBox extends javax.swing.JDialog
 {
 	
-	/** Creates new form AboutBox */
+	private static final long serialVersionUID = 1L;
+  /** Creates new form AboutBox */
 	public AboutBox(java.awt.Frame parent, boolean modal)
 	{
 		super(parent, modal);

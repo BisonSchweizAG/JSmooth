@@ -20,21 +20,16 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.File;
-import java.util.jar.*;
+import java.awt.BorderLayout;
 
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import javax.swing.JTextField;
+
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.util.RegExDocument;
 
 public class MaxVersion extends Editor
 {
+    private static final long serialVersionUID = 1L;
     private JTextField m_args = new JTextField();
     
     public MaxVersion()

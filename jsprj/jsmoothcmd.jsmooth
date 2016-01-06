@@ -6,12 +6,12 @@
 <JVMSearchPath>jdkpath</JVMSearchPath>
 <JVMSearchPath>exepath</JVMSearchPath>
 <JVMSearchPath>jview</JVMSearchPath>
-<classPath>..\lib\jox116.jar</classPath>
-<classPath>..\lib\JimiProClasses.zip</classPath>
-<classPath>..\lib\dtdparser113.jar</classPath>
-<classPath>..\lib\jsmoothgen.jar</classPath>
+<classPath>lib\jox116.jar</classPath>
+<classPath>lib\JimiProClasses.zip</classPath>
+<classPath>lib\dtdparser113.jar</classPath>
+<classPath>lib\jsmoothgen.jar</classPath>
 <embeddedJar>false</embeddedJar>
-<executableName>..\jsmoothcmd.exe</executableName>
+<executableName>jsmoothcmd.exe</executableName>
 <iconLocation>..\src\icons\gnome-application-x-jar-bm.gif</iconLocation>
 <initialMemoryHeap>-1</initialMemoryHeap>
 <javaProperties>
@@ -22,6 +22,7 @@
 <maximumMemoryHeap>-1</maximumMemoryHeap>
 <maximumVersion></maximumVersion>
 <minimumVersion>1.4</minimumVersion>
+<uacRequireAdministrator>0</uacRequireAdministrator>
 <skeletonName>Console Wrapper</skeletonName>
 <skeletonProperties>
 <key>Message</key>

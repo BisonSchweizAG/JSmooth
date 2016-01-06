@@ -24,7 +24,8 @@ import javax.swing.*;
 
 public class SortedEditableList extends javax.swing.JPanel
 {
-	private boolean m_editableItems = true;
+	private static final long serialVersionUID = 1L;
+  private boolean m_editableItems = true;
 	private Editor m_editor;
 	
 	private DefaultListModel m_model = new DefaultListModel();

@@ -16,158 +16,150 @@
   along with this program; if not, write to the Free Software
   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-*/
+ */
 
 package net.charabia.jsmoothgen.application.gui.util;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import java.io.*;
-import com.l2fprod.common.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
 
 /**
- * Represents a JTextField associated with a button that pops up a
- * file dialog selector.
- *
+ * Represents a JTextField associated with a button that pops up a file dialog selector.
+ * 
  */
 
-public class OptionalHelpPanel extends JPanel
-{
-    private JPanel m_panel = new JPanel();
-    protected boolean m_limitHeight = true;
+public class OptionalHelpPanel extends JPanel {
+  private static final long serialVersionUID = 1L;
+  private JPanel m_panel = new JPanel();
+  protected boolean m_limitHeight = true;
 
-    private HTMLPane m_helpPanel = new HTMLPane() {
-	    public Dimension getPreferredSize()
-	    {
-		Dimension d = super.getPreferredSize();
-		if (OptionalHelpPanel.this.m_limitHeight)
-		    {
-			if (d.height>180)
-			    d.height = 180;
-		    }
-		return d;
-	    }
-	};
+  private HTMLPane m_helpPanel = new HTMLPane() {
+    private static final long serialVersionUID = 1L;
 
-    private JPanel m_titlePanel = new JPanel();
-    private JLabel m_title = new JLabel();
-    private JButton m_helptoggle = new JButton("?");
-
-    private boolean m_helpActive = false;
-
-    public OptionalHelpPanel()
-    {
-	setLayout(new GridBagLayout());
-
-	m_helptoggle.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) 
-		{
-		    m_helpActive = !m_helpActive;
-		    toggleHelpCheck();
-		}
-	    });
-
-
-	setLayout(new PanelLayout());
-
-	m_titlePanel.setLayout(new BorderLayout());
-       	m_titlePanel.add(BorderLayout.CENTER, m_title);
-	m_titlePanel.add(BorderLayout.EAST, m_helptoggle);
-	m_titlePanel.setOpaque(true);
-	m_helptoggle.setOpaque(false);
-	m_helptoggle.setBorder(null);
-	m_title.setBorder(BorderFactory.createEmptyBorder(2,10,2,2));
- 	add(m_titlePanel);
-	
- 	add(m_panel);
-	add(m_helpPanel);
-
-	setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2), BorderFactory.createBevelBorder(BevelBorder.RAISED)), BorderFactory.createEmptyBorder(2,2,2,2)));
-
-	java.net.URL helpimgurl = getClass().getResource("/icons/stock_help-agent.png");
-	if (helpimgurl != null)
-	    {
-		javax.swing.ImageIcon leaf = new javax.swing.ImageIcon(helpimgurl);
-		m_helptoggle.setIcon(leaf);
-		m_helptoggle.setText("");
-	    }
-	else
-	    {
-		m_helptoggle.setText("(?)");
-	    }
-	setLabelColor(Color.white, Color.darkGray);
-
-	toggleHelpCheck();
+    public Dimension getPreferredSize() {
+      Dimension d = super.getPreferredSize();
+      if (OptionalHelpPanel.this.m_limitHeight) {
+        if (d.height > 180) d.height = 180;
+      }
+      return d;
     }
+  };
 
-    private void toggleHelpCheck()
-    {
-	m_helpPanel.setVisible(m_helpActive);
-	validate();
-	repaint();
+  private JPanel m_titlePanel = new JPanel();
+  private JLabel m_title = new JLabel();
+  private JButton m_helptoggle = new JButton("?");
+
+  private boolean m_helpActive = false;
+
+  public OptionalHelpPanel() {
+    setLayout(new GridBagLayout());
+
+    m_helptoggle.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        m_helpActive = !m_helpActive;
+        toggleHelpCheck();
+      }
+    });
+
+    setLayout(new PanelLayout());
+
+    m_titlePanel.setLayout(new BorderLayout());
+    m_titlePanel.add(BorderLayout.CENTER, m_title);
+    m_titlePanel.add(BorderLayout.EAST, m_helptoggle);
+    m_titlePanel.setOpaque(true);
+    m_helptoggle.setOpaque(false);
+    m_helptoggle.setBorder(null);
+    m_title.setBorder(BorderFactory.createEmptyBorder(2, 10, 2, 2));
+    add(m_titlePanel);
+
+    add(m_panel);
+    add(m_helpPanel);
+
+    setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2),
+        BorderFactory.createBevelBorder(BevelBorder.RAISED)), BorderFactory.createEmptyBorder(2, 2, 2, 2)));
+
+    java.net.URL helpimgurl = getClass().getResource("/icons/stock_help-agent.png");
+    if (helpimgurl != null) {
+      javax.swing.ImageIcon leaf = new javax.swing.ImageIcon(helpimgurl);
+      m_helptoggle.setIcon(leaf);
+      m_helptoggle.setText("");
+    } else {
+      m_helptoggle.setText("(?)");
     }
+    setLabelColor(Color.white, Color.darkGray);
 
-    public Dimension getPreferredSize()
-    {
-	Dimension d = super.getPreferredSize();
-	d.width = 1;
-	return d;
-    }
+    toggleHelpCheck();
+  }
 
+  private void toggleHelpCheck() {
+    m_helpPanel.setVisible(m_helpActive);
+    validate();
+    repaint();
+  }
 
-    public JPanel getContentPane()
-    {
-	return m_panel;
-    }
+  public Dimension getPreferredSize() {
+    Dimension d = super.getPreferredSize();
+    d.width = 1;
+    return d;
+  }
 
-    public void setLabel(String label)
-    {
-	label = "<html><b>" + label + "</b></hmtl>";
-	m_title.setText(label);
-    }
+  public JPanel getContentPane() {
+    return m_panel;
+  }
 
-    public void setHelpText(String help)
-    {
-	m_helpPanel.setText(help);
-    }
+  public void setLabel(String label) {
+    label = "<html><b>" + label + "</b></hmtl>";
+    m_title.setText(label);
+  }
 
-    public void setLabelColor(Color fore, Color back)
-    {
-	m_titlePanel.setBackground(back);
-	m_title.setForeground(fore);
-	repaint();
-    }
+  public void setHelpText(String help) {
+    m_helpPanel.setText(help);
+  }
 
-    public void setLimitHeight(boolean b)
-    {
-	m_limitHeight = b;
-	validate();
-	repaint();
-    }
+  public void setLabelColor(Color fore, Color back) {
+    m_titlePanel.setBackground(back);
+    m_title.setForeground(fore);
+    repaint();
+  }
 
-    public static void main(String[] args)
-    {
-	JFrame f = new JFrame("test");
+  public void setLimitHeight(boolean b) {
+    m_limitHeight = b;
+    validate();
+    repaint();
+  }
 
-	OptionalHelpPanel ohp = new OptionalHelpPanel();
-	ohp.setHelpText("This is my help text");
-	ohp.setLabel("My label1");
-	ohp.getContentPane().setLayout(new BorderLayout());
-	//	ohp.getContentPane().add(BorderLayout.CENTER, new JScrollPane(new JTextArea(40,40)));
-	ohp.getContentPane().add(BorderLayout.CENTER, new FileSelectionTextField());
+  public static void main(String[] args) {
+    JFrame f = new JFrame("test");
 
-	OptionalHelpPanel ohp2 = new OptionalHelpPanel();
-	ohp.setLabel("hop2");
-	ohp2.setHelpText("<html><h1>This is my second help text</h1>le géant du logiciel va-t-il écouter et arrêter le déluge promotionel qui vise à faire connaitre les nouveautés de Office 2003 alors que les utilisateurs sont satisfaits des versions précédentes et que les responsables zieutent lourdement du coté de Linux et d'OpenOffice ?");
-	ohp2.getContentPane().setLayout(new BorderLayout());
-	ohp2.getContentPane().add(BorderLayout.CENTER, new JTextField());
+    OptionalHelpPanel ohp = new OptionalHelpPanel();
+    ohp.setHelpText("This is my help text");
+    ohp.setLabel("My label1");
+    ohp.getContentPane().setLayout(new BorderLayout());
+    // ohp.getContentPane().add(BorderLayout.CENTER, new JScrollPane(new JTextArea(40,40)));
+    ohp.getContentPane().add(BorderLayout.CENTER, new FileSelectionTextField());
 
-	f.getContentPane().setLayout(new PanelLayout());
-	f.getContentPane().add(ohp);
-	f.getContentPane().add(ohp2);
-	f.setSize(300,300);
-	f.setVisible(true);
-    }
+    OptionalHelpPanel ohp2 = new OptionalHelpPanel();
+    ohp.setLabel("hop2");
+    ohp2.setHelpText("<html><h1>This is my second help text</h1></html>");
+    ohp2.getContentPane().setLayout(new BorderLayout());
+    ohp2.getContentPane().add(BorderLayout.CENTER, new JTextField());
+
+    f.getContentPane().setLayout(new PanelLayout());
+    f.getContentPane().add(ohp);
+    f.getContentPane().add(ohp2);
+    f.setSize(300, 300);
+    f.setVisible(true);
+  }
 }

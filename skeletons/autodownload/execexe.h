@@ -25,6 +25,6 @@
 #include <windows.h>
 #include "FileUtils.h"
 
-void execute(const std::string& commandline, bool noConsole);
+DWORD execute(const std::string& commandline, bool noConsole,bool waitFor);
 
 #endif

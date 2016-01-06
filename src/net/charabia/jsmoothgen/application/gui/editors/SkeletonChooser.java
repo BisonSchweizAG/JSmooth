@@ -20,20 +20,23 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.event.*;
-import java.util.*;
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import java.util.Iterator;
 
+import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import net.charabia.jsmoothgen.application.JSmoothModelBean;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.skeleton.SkeletonBean;
 import se.datadosen.component.RiverLayout;
 
 public class SkeletonChooser extends Editor implements JSmoothModelBean.SkeletonChangedListener
 {
+    private static final long serialVersionUID = 1L;
+
     private JComboBox m_skelcombo = new JComboBox();
 //     private HTMLPane m_skeldesc = new HTMLPane() {
 // 	    public java.awt.Dimension getPreferredSize()
@@ -61,7 +64,8 @@ public class SkeletonChooser extends Editor implements JSmoothModelBean.Skeleton
 	JPanel jp = new JPanel();
 	jp.setLayout(new java.awt.BorderLayout());
 	jp.add(new JScrollPane(m_skeldesc) {
-		public java.awt.Dimension getMinimumSize()
+		private static final long serialVersionUID = 1L;
+    public java.awt.Dimension getMinimumSize()
 		{
 		    return new java.awt.Dimension(10,100);
 		}

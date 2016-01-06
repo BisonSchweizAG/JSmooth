@@ -20,22 +20,29 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.application.gui.skeleditors.*;
+import java.awt.BorderLayout;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import javax.swing.JLabel;
 
+import net.charabia.jsmoothgen.application.JSmoothModelBean;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.application.gui.skeleditors.AutoDownloadURLEditor;
+import net.charabia.jsmoothgen.application.gui.skeleditors.CheckBoxEditor;
+import net.charabia.jsmoothgen.application.gui.skeleditors.SkelPanel;
+import net.charabia.jsmoothgen.application.gui.skeleditors.SkelPropEditor;
+import net.charabia.jsmoothgen.application.gui.skeleditors.StringEditor;
+import net.charabia.jsmoothgen.application.gui.skeleditors.TextAreaEditor;
+import net.charabia.jsmoothgen.application.gui.util.HelpButton;
+import net.charabia.jsmoothgen.skeleton.SkeletonBean;
+import net.charabia.jsmoothgen.skeleton.SkeletonProperty;
 import se.datadosen.component.RiverLayout;
 
 public class SkeletonPropertiesEditor extends Editor implements JSmoothModelBean.SkeletonChangedListener
 {
+    private static final long serialVersionUID = 1L;
     private String m_currentSkelName = null;
     private SkeletonBean m_skel = null;
     private SkelPanel    m_panel = new SkelPanel();

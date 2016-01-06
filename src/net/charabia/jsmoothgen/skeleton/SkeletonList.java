@@ -21,7 +21,7 @@
 /*
  * SkeletonList.java
  *
- * Created on 7 août 2003, 20:09
+ * Created on 7 august 2003, 20:09
  */
 
 package net.charabia.jsmoothgen.skeleton;

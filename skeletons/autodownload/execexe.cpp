@@ -22,7 +22,7 @@
 
 //
 // EXEC CMD
-void execute(const std::string& commandline, bool noConsole=true)
+DWORD execute(const std::string& commandline, bool noConsole, bool waitFor)
 {
   STARTUPINFO info;
   GetStartupInfo(&info);
@@ -40,7 +40,7 @@ void execute(const std::string& commandline, bool noConsole=true)
   else
     {
       info.dwFlags = STARTF_USESHOWWINDOW;
-      creationFlags = NORMAL_PRIORITY_CLASS | DETACHED_PROCESS;
+      creationFlags = NORMAL_PRIORITY_CLASS;
       inheritsHandle = FALSE;
     }
 		  
@@ -48,5 +48,10 @@ void execute(const std::string& commandline, bool noConsole=true)
   PROCESS_INFORMATION procinfo;
 
   int res = CreateProcess(NULL, (char*)commandline.c_str(), NULL, NULL, inheritsHandle, creationFlags, NULL, NULL, &info, &procinfo);
-
+  DWORD exitCode = 0;
+  if (res && waitFor) {
+	  WaitForSingleObject(procinfo.hProcess, INFINITE);
+	  GetExitCodeProcess(procinfo.hProcess, &exitCode);
+  }
+  return exitCode;
 }

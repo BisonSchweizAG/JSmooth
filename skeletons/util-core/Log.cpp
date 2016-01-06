@@ -30,7 +30,7 @@ Log::Log()
 
 Log::Log(const std::string& filepath)
 {
-  m_out = fopen(filepath.c_str(), "a");
+  m_out = fopen(filepath.c_str(), "w");
 }
 
 Log::~Log()

@@ -22,6 +22,7 @@
 #define _JVMREGISTRYLOOKUP_H_
 
 #include <vector>
+#include <algorithm>
 
 #include "SunJVMLauncher.h"
 #include "JVMRegistryLookup.h"

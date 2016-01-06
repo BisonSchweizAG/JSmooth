@@ -24,6 +24,7 @@ JVMBase::JVMBase()
 {
   m_maxHeap = -1;
   m_initialHeap = -1;
+  m_vmParameter = "";
 }
 
 void JVMBase::addPathElement(const std::string& element)
@@ -65,4 +66,9 @@ void JVMBase::setArguments(const std::string& args)
       DEBUG("SPLITTED-ARG[" + StringUtils::toString(i)+"]="+ splitted[i]);
       this->addArgument(splitted[i]);
     }
+}
+
+void JVMBase::setVmParameter(std::string parameter)
+{
+  m_vmParameter = parameter;
 }

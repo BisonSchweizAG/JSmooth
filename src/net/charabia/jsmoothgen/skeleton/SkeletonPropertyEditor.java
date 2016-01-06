@@ -1,7 +1,7 @@
 /*
  * SkeletonPropertyEditor.java
  *
- * Created on 14 août 2003, 00:47
+ * Created on 14 august 2003, 00:47
  */
 
 package net.charabia.jsmoothgen.skeleton;
@@ -17,13 +17,15 @@ import java.awt.*;
  */
 public class SkeletonPropertyEditor extends javax.swing.JPanel
 {
-	private SkeletonPropertyEditor.SkelPropTableModel m_model;
+	private static final long serialVersionUID = 1L;
+  private SkeletonPropertyEditor.SkelPropTableModel m_model;
 	private java.util.Vector m_columnNames = new Vector();
 	
 	
 	public static class SkelPropTableModel extends AbstractTableModel
 	{
-		Vector m_props = new Vector();
+		private static final long serialVersionUID = 1L;
+    Vector m_props = new Vector();
 		
 		public SkelPropTableModel(SkeletonProperty[] props)
 		{

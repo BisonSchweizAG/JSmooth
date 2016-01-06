@@ -20,18 +20,22 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import java.awt.BorderLayout;
+
+import javax.swing.AbstractAction;
+import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.application.gui.util.FileSelectionTextField;
+import net.charabia.jsmoothgen.application.gui.util.HelpButton;
+
+import com.l2fprod.common.swing.JDirectoryChooser;
 
 public class CurrentDirectory extends Editor
 {
+    private static final long serialVersionUID = 1L;
     private FileSelectionTextField m_selector = new FileSelectionTextField();
     private JCheckBox m_forceExePath = new JCheckBox();
     
@@ -47,7 +51,9 @@ public class CurrentDirectory extends Editor
 	add(BorderLayout.SOUTH, jpc);
 
 	m_forceExePath.setAction(new AbstractAction(Main.local("CURRENTDIR_FORCEEXEPATH")) {
-		public void actionPerformed(java.awt.event.ActionEvent e)
+		private static final long serialVersionUID = 1L;
+
+    public void actionPerformed(java.awt.event.ActionEvent e)
 		{
 		    if (m_forceExePath.isSelected())
 			m_selector.setEnabled(false);

@@ -20,18 +20,22 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import com.l2fprod.common.swing.*;
-import com.l2fprod.common.propertysheet.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import net.charabia.jsmoothgen.application.JSmoothModelBean;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.Main;
+import net.charabia.jsmoothgen.skeleton.SkeletonBean;
+import net.charabia.jsmoothgen.skeleton.SkeletonProperty;
+
+import com.l2fprod.common.propertysheet.DefaultProperty;
+import com.l2fprod.common.propertysheet.Property;
+import com.l2fprod.common.propertysheet.PropertySheetPanel;
 
 public class SkeletonProperties extends Editor implements JSmoothModelBean.SkeletonChangedListener
 {
+    private static final long serialVersionUID = 1L;
     private PropertySheetPanel m_skelprops = new PropertySheetPanel();
     private String m_currentSkelName = null;
     private SkeletonBean m_skel = null;
@@ -101,7 +105,8 @@ public class SkeletonProperties extends Editor implements JSmoothModelBean.Skele
 
     public class SkeletonPropertyProxy extends DefaultProperty
     {
-	SkeletonProperty m_property;
+	private static final long serialVersionUID = 1L;
+  SkeletonProperty m_property;
 
 	public SkeletonPropertyProxy(SkeletonProperty prop)
 	{

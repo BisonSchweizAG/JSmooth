@@ -20,15 +20,13 @@
 
 package net.charabia.jsmoothgen.application.gui;
 
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
-import java.io.File;
-import com.l2fprod.common.swing.*;
-import net.charabia.jsmoothgen.application.*;
+import javax.swing.JPanel;
+
+import net.charabia.jsmoothgen.application.JSmoothModelBean;
 
 public abstract class Editor extends JPanel
 {
+    private static final long serialVersionUID = 1L;
     protected JSmoothModelBean m_model;
     protected java.io.File m_basedir;
 

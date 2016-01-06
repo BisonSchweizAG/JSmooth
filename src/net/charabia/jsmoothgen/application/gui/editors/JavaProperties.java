@@ -20,18 +20,16 @@
 
 package net.charabia.jsmoothgen.application.gui.editors;
 
-import net.charabia.jsmoothgen.skeleton.*;
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import net.charabia.jsmoothgen.application.gui.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.File;
-import java.util.jar.*;
+import java.awt.BorderLayout;
+
+import net.charabia.jsmoothgen.application.JavaPropertyPair;
+import net.charabia.jsmoothgen.application.gui.Editor;
+import net.charabia.jsmoothgen.application.gui.util.PropertyEditorDialog;
+import net.charabia.jsmoothgen.application.gui.util.SortedEditableList;
 
 public class JavaProperties extends Editor
 {
+    private static final long serialVersionUID = 1L;
     private SortedEditableList m_props = new SortedEditableList();
 
     public class PropEditor implements SortedEditableList.Editor

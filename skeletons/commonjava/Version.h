@@ -21,6 +21,7 @@
 #ifndef __VERSION_H_
 #define __VERSION_H_
 
+#include <cstdio>
 #include <string>
 
 #include "common.h"

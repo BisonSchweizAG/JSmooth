@@ -20,13 +20,13 @@
 
 package net.charabia.jsmoothgen.application.gui.util;
 
-import java.util.*;
-import javax.swing.text.*;
-import java.text.*;
-import java.util.regex.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 public class RegExDocument extends PlainDocument
 {
+    private static final long serialVersionUID = 1L;
     private java.util.regex.Pattern m_pattern;
 
     public RegExDocument(String pattern)

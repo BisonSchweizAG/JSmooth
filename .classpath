@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="skeletons/jnismooth/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/dtdparser113.jar"/>
 	<classpathentry kind="lib" path="lib/jox116.jar"/>
@@ -12,5 +11,6 @@
 	<classpathentry kind="lib" path="lib/jface.jar"/>
 	<classpathentry kind="lib" path="lib/BrowserLauncher2-10.jar"/>
 	<classpathentry kind="lib" path="lib/riverlayout.jar"/>
+	<classpathentry kind="lib" path="lib/ant_1.7.1.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

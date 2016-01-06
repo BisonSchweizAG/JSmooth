@@ -19,11 +19,14 @@
 */
 
 #include "SunJVMLauncher.h"
-#include "Process.h"
+#include "_Process.h"
 
 #include "SunJVMDLL.h"
 #include "JArgs.h"
 #include "JClassProxy.h"
+
+#undef max
+#undef min
 
 extern "C" {
   static jint JNICALL  myvprintf(FILE *fp, const char *format, va_list args)
@@ -183,6 +186,9 @@ bool SunJVMLauncher::setupVM(ResourceManager& resource, JVMBase* vm)
   
   if (resource.getProperty("initialheap") != "")
     vm->setInitialHeap( StringUtils::parseInt(resource.getProperty("initialheap") ));
+
+  if (resource.getProperty("vmparameter") != "")
+	vm->setVmParameter( resource.getProperty("vmparameter") );
   
   if (resource.useEmbeddedJar())
     {
@@ -211,6 +217,7 @@ bool SunJVMLauncher::setupVM(ResourceManager& resource, JVMBase* vm)
       vm->addArgument(args[i]);
     }
 
+  return true;
 }
 
 SunJVMDLL* SunJVMLauncher::getDLL()

@@ -39,7 +39,7 @@ vector<SunJVMLauncher> JVMRegistryLookup::lookupJVM()
       res.insert(res.end(), *i);
     }
 
-  std::sort(res.begin(), res.end(), jvmsorter_dec() );
+  sort(res.begin(), res.end(), jvmsorter_dec() );
 
   return res;
 }

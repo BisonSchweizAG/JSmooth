@@ -34,6 +34,7 @@ import se.datadosen.component.RiverLayout;
 
 public class MasterPanel extends JPanel
 {
+    private static final long serialVersionUID = 1L;
     private JButtonBar m_leftBar = new JButtonBar(JButtonBar.VERTICAL);
     private ButtonGroup m_leftGroup = new ButtonGroup();
     private JPanel m_mainpanel = new JPanel();
@@ -128,7 +129,9 @@ public class MasterPanel extends JPanel
     private void addAction(final String name, String iconloc, final Object[] els)
     {
 	final Action a = new AbstractAction( name, new ImageIcon(getClass().getResource(iconloc))) {
-		public void actionPerformed(ActionEvent e) 
+		private static final long serialVersionUID = 1L;
+
+    public void actionPerformed(ActionEvent e) 
 		{
 		    if (m_currentPanelName.equals(name))
 			return;

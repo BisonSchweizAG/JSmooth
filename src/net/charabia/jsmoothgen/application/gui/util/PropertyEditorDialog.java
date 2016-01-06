@@ -20,12 +20,17 @@
 
 package net.charabia.jsmoothgen.application.gui.util;
 
-import net.charabia.jsmoothgen.application.*;
-import net.charabia.jsmoothgen.application.gui.*;
-import java.util.*;
-import com.l2fprod.common.swing.*;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import net.charabia.jsmoothgen.application.JavaPropertyPair;
+import net.charabia.jsmoothgen.application.gui.Main;
+
+import com.l2fprod.common.swing.BaseDialog;
 
 /**
  *
@@ -33,6 +38,7 @@ import java.awt.*;
  */
 public class PropertyEditorDialog extends BaseDialog
 {
+    private static final long serialVersionUID = 1L;
     private JavaPropertyPair m_prop;
     private JTextField m_key = new JTextField();
     private JTextField m_value = new JTextField();

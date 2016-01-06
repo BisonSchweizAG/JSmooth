@@ -19,7 +19,8 @@
 */
 
 #include "JavaMachineManager.h"
-
+#undef max
+#undef min
 
 JavaMachineManager::JavaMachineManager(ResourceManager& resman): m_resman(resman)
 {
@@ -138,7 +139,21 @@ bool JavaMachineManager::run()
 	      m_exitCode = m_localVM.getExitCode();
 	      return true;
 	    }
-	}
+	  }
+	  else if (StringUtils::startsWith(*i, "customjavahome")) {
+		  DEBUG("- Trying to use " + *i);
+		  vector<string> nameVal = StringUtils::split(*i, "=", "");
+		  if (nameVal.size() > 1) {
+			string envVar = nameVal[1];
+			vector<SunJVMLauncher> vms = JVMEnvVarLookup::lookupJVM(envVar);
+			if (vms.empty()) {
+				DEBUG("- customjavahome: no VM found.");
+			}
+			else if (internalRun(vms[0], "jrehome")) {
+				return true;
+			}
+		  }
+	  }
     }
 
   DEBUG("Couldn't run any suitable JVM!");
@@ -193,6 +208,15 @@ SunJVMLauncher* JavaMachineManager::runDLLFromRegistry(bool justInstanciate)
       if (res)
 	return &m_registryVms[i];
     }
+    
+  if (m_localVMenabled) {
+    if (m_localVM.run(m_resman, "bundled", justInstanciate)) {
+      return &m_localVM;
+    } else {
+      DEBUG("Bundled VM launch failed");
+    }
+  }
+
 
   return NULL;
 }

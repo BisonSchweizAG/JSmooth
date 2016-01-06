@@ -29,7 +29,8 @@ import java.util.*;
  */
 public class CompilationDialog extends javax.swing.JDialog implements ExeCompiler.StepListener
 {
-	private ExeCompiler m_compiler;
+	private static final long serialVersionUID = 1L;
+  private ExeCompiler m_compiler;
 	private boolean m_result = false;
 	private boolean m_canceled = false;
 	

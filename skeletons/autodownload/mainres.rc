@@ -1,9 +1,45 @@
-
 #include "resource.h"
+#include "windows.h"
 
 JARID JAVA "../samplejar/sample.jar"
 PROPID JAVA "../samplejar/sample.props"
 JNISMOOTHID JAVA "../jnismooth/jnismooth.jar"
 
 A2 ICON MOVEABLE PURE LOADONCALL DISCARDABLE "JWrap.ico"
+1 RT_MANIFEST "../samplejar/sample.manifest"
 
+IDD_INFO DIALOGEX 0, 0, 230, 30
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "Static",IDC_INFO,5,12,220,40
+END
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 0,0,0,0
+	  PRODUCTVERSION 0,0,0,0
+    FILEFLAGSMASK 0x3fL
+    FILEFLAGS 0x0L
+    FILEOS 0x40004L
+    FILETYPE 0x1L
+    FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004b0"
+        BEGIN
+            VALUE "CompanyName", "CompanyName"
+            VALUE "FileDescription", "FileDescription"
+            VALUE "FileVersion", "0.0.0.0"
+            VALUE "LegalCopyright", "LegalCopyright"
+            VALUE "OriginalFilename", "OriginalFilename"
+            VALUE "ProductName", "ProductName"
+            VALUE "ProductVersion", "0.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1200
+    END
+END

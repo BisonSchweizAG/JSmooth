@@ -22,7 +22,7 @@
 /*
  * SkeletonPersistency.java
  *
- * Created on 7 août 2003, 22:22
+ * Created on 7 august 2003, 22:22
  */
 
 package net.charabia.jsmoothgen.skeleton;

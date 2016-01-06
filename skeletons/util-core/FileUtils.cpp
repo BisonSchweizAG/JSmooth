@@ -169,7 +169,7 @@ std::string FileUtils::getFileExtension(const std::string& filename)
 
 bool FileUtils::isAbsolute(const std::string& filename)
 {
-  if ((filename.length()>2) && (filename[1] == ':') && (filename[2] =='\\'))
+  if (((filename.length()>2) && (filename[1] == ':') && (filename[2] =='\\')) || ((filename.length() >2) && (filename[0] == '\\') && (filename[1]=='\\')))
     return true;
 
   return false;
@@ -208,4 +208,21 @@ std::string FileUtils::readFile(const std::string& filename)
     }
 
   return result;
+}
+
+std::string FileUtils::getRelOrAbsFile(std::string url) {
+	std::string file;
+	if (StringUtils::startsWith(url, "\\\\")) {
+		// absolute unc
+		file = url;
+	}
+	else if (StringUtils::startsWith(url, "\\")) {
+		// absolute
+		file = url.substr(1);
+	}
+	else {
+		string parent = FileUtils::getExecutablePath();
+		file = parent + url;
+	}
+	return file;
 }

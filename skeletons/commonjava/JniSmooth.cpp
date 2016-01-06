@@ -67,7 +67,7 @@ JNIEXPORT jboolean JNICALL jnm_deleteFileOnReboot(JNIEnv *env, jobject obj, jstr
 
   return JNI_TRUE;
 }
-
+#pragma warning(disable : 4996)
 JNIEXPORT jboolean JNICALL jnm_exitWindows(JNIEnv *env, jobject obj, jint s)
 {
 
@@ -142,9 +142,9 @@ JNIEXPORT jobject JNICALL jnm_getdriveinfo(JNIEnv *env, jobject obj, jobject fil
     }
 
   JMethodCaller canonicalcaller("java.io.File", "java.lang.String getCanonicalPath()");
-  jvalue vals[0];
+  jvalue vals;
 
-  jvalue canonicalval = canonicalcaller.invoke(*jnismooth_dll, file, vals);
+  jvalue canonicalval = canonicalcaller.invoke(*jnismooth_dll, file, &vals);
   jstring jcanstr = (jstring)canonicalval.l;
 
   jboolean copy = true;

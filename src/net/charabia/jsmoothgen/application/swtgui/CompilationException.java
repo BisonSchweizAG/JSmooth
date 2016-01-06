@@ -8,6 +8,7 @@ package net.charabia.jsmoothgen.application.swtgui;
  */
 public class CompilationException extends Exception {
     
+    private static final long serialVersionUID = 1L;
     public String[] messages;
     
     public CompilationException(String message) {

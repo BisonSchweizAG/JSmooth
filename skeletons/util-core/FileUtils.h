@@ -77,7 +77,7 @@ class FileUtils
    * @param filename an absolute or relative filename.
    * @return a string with the file part of the file.
    */ 
-  static std::string FileUtils::extractFileName(const std::string& filename);
+  static std::string extractFileName(const std::string& filename);
 
   /**
    * Returns the path where the executable application is executed
@@ -120,6 +120,7 @@ class FileUtils
 
   static void deleteOnReboot(std::string file);
 
+  static std::string getRelOrAbsFile(std::string url);
 };
 
 #endif

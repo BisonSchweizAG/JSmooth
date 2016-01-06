@@ -31,6 +31,7 @@ import java.util.prefs.*;
 
 public class Main extends JFrame
 {
+    private static final long serialVersionUID = 1L;
     final static public SkeletonList SKELETONS = new SkeletonList(new java.io.File("skeletons"));
     final static public String VERSION = "@{VERSION}@";
     final static public String RELEASEINFO = "@{RELEASEINFO}@";
@@ -138,7 +139,9 @@ public class Main extends JFrame
 
     private final Icon ICON_NEW = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_new.png"));
     public final Action NEW = new AbstractAction(local("NEW"), ICON_NEW) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		m_panel.newModel();
 		setTitle("Untitled");
@@ -148,7 +151,9 @@ public class Main extends JFrame
     
     private final Icon ICON_OPEN = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_open.png"));
     public final Action OPEN = new AbstractAction(local("OPEN"), ICON_OPEN) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 	      	if (m_projectFileChooser.showOpenDialog(Main.this) == JFileChooser.APPROVE_OPTION)
 		    {
@@ -168,7 +173,9 @@ public class Main extends JFrame
 
     private final Icon ICON_SAVE = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_save.png"));
     public final Action SAVE = new AbstractAction(local("SAVE"), ICON_SAVE) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		if (m_panel.getProjectFile() == null)
 		    SAVE_AS.actionPerformed(e);
@@ -181,7 +188,9 @@ public class Main extends JFrame
 
     private final Icon ICON_SAVE_AS = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_save_as.png"));
     public final Action SAVE_AS = new AbstractAction(local("SAVE_AS"), ICON_SAVE_AS) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		if (m_projectFileChooser.showSaveDialog(Main.this) == JFileChooser.APPROVE_OPTION)
 		    {
@@ -210,7 +219,9 @@ public class Main extends JFrame
 
     private final Icon ICON_EXIT = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_exit-16.png"));
     public final Action EXIT = new AbstractAction(local("EXIT"), ICON_EXIT) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		m_recentFiles.savePrefs();
 		saveWindowSettings();
@@ -225,7 +236,9 @@ public class Main extends JFrame
 
     private final Icon ICON_COMPILE = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_autopilot-24.png"));
     public final Action COMPILE = new AbstractAction(local("COMPILE"), ICON_COMPILE) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		m_panel.fireUpdateModel();
 
@@ -260,7 +273,9 @@ public class Main extends JFrame
 
     private final Icon ICON_RUNEXE = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_next.png"));
     public final Action RUNEXE = new AbstractAction(local("RUNEXE"), ICON_RUNEXE) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		m_panel.runexe();
 	    }
@@ -268,7 +283,9 @@ public class Main extends JFrame
 
     private final Icon ICON_ABOUT = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_about.png"));
     public final Action ABOUT = new AbstractAction(local("ABOUT"), ICON_ABOUT) {
-	    public void actionPerformed(ActionEvent e)
+	    private static final long serialVersionUID = 1L;
+
+      public void actionPerformed(ActionEvent e)
 	    {
 		AboutBox ab = new AboutBox(Main.this, true);
 		ab.setVersion(Main.VERSION + " (" + Main.RELEASEINFO + ")");

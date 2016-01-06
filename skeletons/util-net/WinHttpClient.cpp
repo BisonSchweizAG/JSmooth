@@ -140,6 +140,7 @@ void WinHttpClient::updateListeners(int current, int total)
 bool WinHttpClient::cancel()
 {
   m_cancelled = true;
+  return true;
 }
 
 bool WinHttpClient::isCancelled()

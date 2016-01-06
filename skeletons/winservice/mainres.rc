@@ -1,9 +1,38 @@
 
 #include "resource.h"
+#include "windows.h"
 
-JARID JAVA "sample/sample.jar"
-PROPID JAVA "sample/sample.props"
+JARID JAVA "../samplejar/sample.jar"
+PROPID JAVA "../samplejar/sample.props"
 JNISMOOTHID JAVA "../jnismooth/jnismooth.jar"
 
 A2 ICON MOVEABLE PURE LOADONCALL DISCARDABLE "JWrap.ico"
+1 MANIFEST "../samplejar/sample.manifest"
 
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 0,0,0,0
+    PRODUCTVERSION 0,0,0,0
+    FILEFLAGSMASK 0x3fL
+    FILEFLAGS 0x0L
+    FILEOS 0x40004L
+    FILETYPE 0x1L
+    FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004b0"
+        BEGIN
+            VALUE "CompanyName", "CompanyName"
+            VALUE "FileDescription", "FileDescription"
+            VALUE "FileVersion", "0.0.0.0"
+            VALUE "LegalCopyright", "LegalCopyright"
+            VALUE "OriginalFilename", "OriginalFilename"
+            VALUE "ProductName", "ProductName"
+            VALUE "ProductVersion", "0.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1200
+    END
+END

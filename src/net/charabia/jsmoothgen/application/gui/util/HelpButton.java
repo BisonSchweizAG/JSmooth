@@ -20,13 +20,20 @@
 
 package net.charabia.jsmoothgen.application.gui.util;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import java.io.*;
-import com.l2fprod.common.swing.*;
-import java.util.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.StringTokenizer;
+
+import javax.swing.Icon;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JWindow;
+
 import net.charabia.jsmoothgen.application.gui.Main;
 /**
  * 
@@ -34,6 +41,8 @@ import net.charabia.jsmoothgen.application.gui.Main;
 
 public class HelpButton extends JLabel
 {
+    private static final long serialVersionUID = 1L;
+
     protected JWindow m_helpWindow = new JWindow(Main.MAIN);
 
     private final Icon ICON_HELP = new javax.swing.ImageIcon(getClass().getResource("/icons/stock_help-agent-16.png"));

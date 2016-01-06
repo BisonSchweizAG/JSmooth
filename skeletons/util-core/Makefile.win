@@ -2,13 +2,13 @@
 
 PROJECTNAME=util-core
 RM   = rm -f
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = ${MINGW}/bin/${TARGET}-g++.exe
+CC   = ${MINGW}/bin/${TARGET}-gcc.exe
 WINDRES = windres.exe
 MINGW =
 RES  = 
-OBJ  = SingleInstanceManager.o Process.o Log.o Thread.o FileUtils.o StringUtils.o DebugConsole.o $(RES)
-LIBS =  -L"$(MINGW)/lib"  -L"/lib" -lws2_32
+OBJ  = SingleInstanceManager.o _Process.o Log.o Thread.o FileUtils.o StringUtils.o DebugConsole.o $(RES)
+LIBS =  -static-libgcc -L"$(MINGW)/lib"
 INCS =  -I"$(MINGW)/include"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" 
 CXXINCS = -Os  -I"$(MINGW)/include/c++"  -I"$(MINGW)/include/c++/mingw32"  -I"$(MINGW)/include/c++/backward"  -I"$(MINGW)/include"  -I"$(JDK)/include"  -I"$(JDK)/include/win32" 
 BIN  = $(PROJECTNAME).a

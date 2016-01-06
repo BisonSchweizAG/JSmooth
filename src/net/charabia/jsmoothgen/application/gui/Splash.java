@@ -20,8 +20,17 @@
 
 package net.charabia.jsmoothgen.application.gui;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+import java.awt.Window;
 
 public class Splash
 {
@@ -31,7 +40,8 @@ public class Splash
 
     public class MyWindow extends Window
     {
-	public MyWindow(Frame f)
+	private static final long serialVersionUID = 1L;
+  public MyWindow(Frame f)
 	{
 	    super(f);
 	}
@@ -49,7 +59,8 @@ public class Splash
 
     public class MyDialog extends Dialog
     {
-	public MyDialog(Frame f)
+	private static final long serialVersionUID = 1L;
+  public MyDialog(Frame f)
 	{
 	    super(f, true);
 	    setResizable(false);
