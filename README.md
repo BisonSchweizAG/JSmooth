@@ -52,8 +52,8 @@ To include a VERSIONINFO resource into the generated `.exe`, add this XML fragme
     <productName>my app</productName>
     <legalCopyright>Copyright (C) 2016 - My company</legalCopyright>
     <companyName>My company</companyName>
-    <originalFilename>app.exe</originalFilename>
-    <fileDescription>app.exe</fileDescription>
+    <originalFilename>myapp.exe</originalFilename>
+    <fileDescription>myapp.exe</fileDescription>
 </versionInfo>
 ```
 
