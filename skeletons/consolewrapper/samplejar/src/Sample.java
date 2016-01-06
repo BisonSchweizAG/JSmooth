@@ -21,7 +21,7 @@
 /*
  * Sample.java
  *
- * Created on 3 août 2003, 14:26
+ * Created on 3 august 2003, 14:26
  */
 import java.io.*;
 

@@ -1,7 +1,7 @@
 /*
  * Frame.java
  *
- * Created on 10 août 2003, 19:23
+ * Created on 10 august 2003, 19:23
  */
 
 import java.util.*;

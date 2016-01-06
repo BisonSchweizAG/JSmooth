@@ -21,7 +21,7 @@
 /*
  * Test.java
  *
- * Created on 7 août 2003, 19:31
+ * Created on 7 august 2003, 19:31
  */
 
 package net.charabia.jsmoothgen;

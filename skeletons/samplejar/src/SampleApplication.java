@@ -21,7 +21,7 @@
 /*
  * SampleApplication.java
  *
- * Created on 3 août 2003, 22:26
+ * Created on 3 august 2003, 22:26
  */
 import java.awt.*;
 

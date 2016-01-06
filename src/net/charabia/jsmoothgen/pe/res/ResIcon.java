@@ -21,7 +21,7 @@
 /*
  * ResIcon.java
  *
- * Created on 17 août 2003, 22:51
+ * Created on 17 august 2003, 22:51
  */
 
 package net.charabia.jsmoothgen.pe.res;

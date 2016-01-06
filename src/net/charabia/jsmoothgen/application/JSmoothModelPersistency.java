@@ -21,7 +21,7 @@
 /*
  * JSmoothModelPersistency.java
  *
- * Created on 7 août 2003, 19:42
+ * Created on 7 august 2003, 19:42
  */
 
 package net.charabia.jsmoothgen.application;

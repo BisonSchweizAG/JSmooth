@@ -242,10 +242,8 @@
       <fileset dir="${tmp}/docs/images"/>
     </copy>
     -->
-    <copy todir="${dist}" file="readme.txt"/>
-    <copy todir="${dist}" file="LICENSE.txt"/>
-    <copy todir="${dist}" file="LGPL-LICENSE.txt"/>
-    <copy todir="${dist}" file="GPL-LICENSE.txt"/>
+    <copy todir="${dist}" file="README.md"/>
+    <copy todir="${dist}" file="LICENSE"/>
     <copy tofile="${dist}/Changelog.txt" file="Changelog"/>
 
     <!-- Compile the wrappers -->
