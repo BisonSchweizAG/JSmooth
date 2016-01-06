@@ -44,7 +44,7 @@ To include a VERSIONINFO resource into the generated `.exe`, add this XML fragme
     <binaryProductVersion>99.99.0.0</binaryProductVersion>
     <productVersion>99.99.0.0 HEAD-Build14618</productVersion>
     <productName>my app</productName>
-    <legalCopyright>Copyright (C) 2015 - My company</legalCopyright>
+    <legalCopyright>Copyright (C) 2016 - My company</legalCopyright>
     <companyName>My company</companyName>
     <originalFilename>app.exe</originalFilename>
     <fileDescription>app.exe</fileDescription>
@@ -62,6 +62,15 @@ Besides searching for the JRE at the fixed locations JAVA_HOME, JRE_HOME etc, on
 ...
 ```
 This will search for a JRE at the location contained in the environment variable `MY_JAVA_HOME`.
+
+### Pass Java system properties via command line
+
+Pass a system property on the command line:
+```
+myapp.exe -Dmyprop=myvalue
+```
+
+It will overwrite any property previously defined.
 
 ## Compiling the project
 The section below only applies if you need to build JSmooth from its
