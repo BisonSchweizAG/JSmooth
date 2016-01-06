@@ -61,27 +61,13 @@ http://www.javasoft.com).
  hand. However each project contains either an ant-script, either a
  makefile or a dev-c++ project file.
 
-
 4. License
 
-All the JSmooth project is distributed under the terms of the GNU
-General Public License. Please read the License.txt file that comes
+All the JSmooth project is distributed under the terms of the Apache License Version 2.0. Please read the LICENSE file that comes
 with the package.
-
-This license applies to all the files of the project, but not on the
-generated executable. This means that you are free to generate
-executable wrappers for proprietary software and distribute them
-without applying the terms of the GPL to them.
-
-Of course, this is the one and only exception. All other kind of
-distribution of any file of the JSmooth package must conform with the
-terms of the GNU General Public License.
 
 5. Contributions
 
 Contribution (as bug fixing, additional features, or documentation)
 are welcome, provided they come under the same licensing terms than
-the original JSmooth license (please see above). This is: GPL for all
-the project editor (JSmoothGen) software, and GPL with restriction on
-the skeletons (the skeleton itself as GPL, and the executable built
-on top of the skeleton as public domain). 
+the original JSmooth license (please see above).
