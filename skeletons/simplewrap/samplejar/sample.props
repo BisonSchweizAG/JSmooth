@@ -1,0 +1,17 @@
+arguments=arg1 arg2 arg3
+mainclassname=JSmoothPropertiesDisplayer
+mainclassname2=SampleApplication
+classpath=sample.jar;..\\jsmoothgen.jar
+jvmsearch=registry;jview;javahome;jrepath;jdkpath;exepath;
+minversion=1.1
+maxversion=
+currentdir=
+bundledvm=jre
+skel_Message=Java has not been found on your computer. Do you want to download it?
+skel_URL=http://www.java.com
+javapropertiescount=1
+javaproperty_name_0=nom1
+javaproperty_value_0=valeur1
+maxheap=98000000
+initialheap=48000000
+ 

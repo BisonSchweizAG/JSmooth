@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form>
+    <p><b>What is JSmooth ?</b></p>
+        <p>JSmooth is a '.exe' wrapper, that easies the pain of launching a Java application on Windows.
+        It builds standard Windows executable binaries (.exe) that contain all the information needed
+        to launch your Java application, i.e. the classpath, the Java properties, the JVM version required,
+        and so on. If Java is not installed, it helps the users by displaying them a notice before
+        launching automatically a browser to a web site where they can download a JVM.</p>
+    <p><b>Project status</b></p>
+        <p>JSmooth is currently in beta phase. It is provided in the hope it can be useful to the Java community,
+        but always keep in mind that it's still beta.</p>
+    <p><b>Help</b></p>
+    <li><a>Contents</a></li>
+    <li><a>Credits</a></li>
+</form>

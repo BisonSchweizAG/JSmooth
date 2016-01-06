@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsmoothproject>
+<JVMSearchPath>registry</JVMSearchPath>
+<JVMSearchPath>javahome</JVMSearchPath>
+<JVMSearchPath>jrepath</JVMSearchPath>
+<JVMSearchPath>jdkpath</JVMSearchPath>
+<JVMSearchPath>exepath</JVMSearchPath>
+<JVMSearchPath>jview</JVMSearchPath>
+<embeddedJar>true</embeddedJar>
+<executableName>test-javaproperties-console.exe</executableName>
+<initialMemoryHeap>-1</initialMemoryHeap>
+<jarLocation>..\generic-javaproperties\sample.jar</jarLocation>
+<javaProperties>
+<name>jsmooth.testsuite.executablepath</name>
+<value>${EXECUTABLEPATH}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.executablename</name>
+<value>${EXECUTABLENAME}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.computername</name>
+<value>${COMPUTERNAME}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.vmselection</name>
+<value>${VMSELECTION}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.spawntype</name>
+<value>${VMSPAWNTYPE}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.path</name>
+<value>%PATH%</value>
+</javaProperties>
+<mainClassName>testJavaProperties</mainClassName>
+<maximumMemoryHeap>-1</maximumMemoryHeap>
+<maximumVersion></maximumVersion>
+<minimumVersion></minimumVersion>
+<skeletonName>Console Wrapper</skeletonName>
+<skeletonProperties>
+<key>Message</key>
+<value>This program needs Java to run.
+Please download it at http://www.java.com</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>PressKey</key>
+<value>0</value>
+</skeletonProperties>
+</jsmoothproject>

@@ -1,0 +1,29 @@
+GUI Editable information:
+
+- #1: Skeleton Chooser
+
+- #2: Executable
+	- Executable Name
+	- Executable Icon
+
+- #3: Java application
+	- Jar
+	- Main class name
+	- arguments
+	- Class path
+
+- #4: JVM
+	- minimum java version 
+	- maximum java version
+	- Search preferences : Javasoft Registry < JRE_PATH < JDK_PATH <
+	JAVA_HOME < executable path < JView
+
+- #5: Properties
+	- MX
+	- MS
+	- tag/value properties
+
+- #6: Error management
+	- HTML File to display if no JVM
+	- URL to display if no JVM
+

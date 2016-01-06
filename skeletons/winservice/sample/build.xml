@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="dist" name="jsmooth-sample">
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="classes" value="classes"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${classes}"/>
+  </target>
+
+  <target depends="init" name="compile">
+    <!-- Compile the java code from ${src} into ${classes} -->
+    <javac debug="true" deprecation="yes" destdir="${classes}" srcdir="${src}"/>
+  </target>
+
+  <target depends="compile" name="dist">
+    <!-- Compile the java code from ${src} into ${classes} -->
+    <jar jarfile="sample.jar" basedir="classes"/>    
+    </target>
+
+  <target depends="dist" name="run">
+    <!-- Compile the java code from ${src} into ${classes} -->
+     <java classname="AlertServer" fork="yes" >
+      <classpath>
+          <pathelement path="sample.jar"/>
+       </classpath>
+     </java>
+   </target>
+
+
+  <target name="clean">
+    <delete dir="${classes}"/>
+  </target>
+</project>

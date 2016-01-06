@@ -1,0 +1,9 @@
+
+#include "resource.h"
+
+JARID JAVA "sample/sample.jar"
+PROPID JAVA "sample/sample.props"
+JNISMOOTHID JAVA "../jnismooth/jnismooth.jar"
+
+A2 ICON MOVEABLE PURE LOADONCALL DISCARDABLE "JWrap.ico"
+

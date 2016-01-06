@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsmoothproject>
+<JVMSearchPath>jdkpath</JVMSearchPath>
+<JVMSearchPath>jrepath</JVMSearchPath>
+<JVMSearchPath>javahome</JVMSearchPath>
+<JVMSearchPath>registry</JVMSearchPath>
+<JVMSearchPath>jview</JVMSearchPath>
+<JVMSearchPath>exepath</JVMSearchPath>
+<embeddedJar>true</embeddedJar>
+<executableName>..\bin\testsuite-vmvendorversion-jdkpath-proc.exe</executableName>
+<initialMemoryHeap>-1</initialMemoryHeap>
+<jarLocation>..\generic-vm-sel-test\sample.jar</jarLocation>
+<javaProperties>
+<name>jsmooth.testsuite.selection</name>
+<value>${VMSELECTION}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.selection.check</name>
+<value>jdkpath</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.spawntype</name>
+<value>${VMSPAWNTYPE}</value>
+</javaProperties>
+<javaProperties>
+<name>jsmooth.testsuite.spawntype.check</name>
+<value>PROC</value>
+</javaProperties>
+<mainClassName>testVmVendorVersion</mainClassName>
+<maximumMemoryHeap>-1</maximumMemoryHeap>
+<maximumVersion></maximumVersion>
+<minimumVersion></minimumVersion>
+<skeletonName>Console Wrapper</skeletonName>
+<skeletonProperties>
+<key>Message</key>
+<value>This program needs Java to run.
+Please download it at http://www.java.com</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>PressKey</key>
+<value>0</value>
+</skeletonProperties>
+</jsmoothproject>

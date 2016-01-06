@@ -1,0 +1,56 @@
+
+body {  font-family: sans-serif }
+
+a  { color: black; font-weight: normal;  }
+
+table {
+   border: 0px solid black;
+}
+
+.warning {
+  background-color: #EEEEEE;
+}
+
+
+.programlisting {
+  background-color: #EEDD57;
+}
+
+.function {
+  font-family: monospace;
+  background-color: #EEDD57;
+}
+
+
+.revhistory {
+ margin-left: 25%;
+ width: 50%;
+}
+
+.mediaobject {
+ text-align: center;
+}
+
+img {
+text-align: center;
+}
+
+.author {
+ text-align: center;
+}
+
+div.titlepage h1 {
+ text-align: center;
+}
+
+div.titlepage h3 {
+ text-align: center;
+}
+
+.toc {
+  border: 1px solid black;
+  width: 60%;
+  margin-left: 15%;
+  padding-left: 5%;
+  background-color: #fafafa;
+}

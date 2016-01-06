@@ -1,0 +1,33 @@
+# Project: JWrap
+# Makefile created by Dev-C++ 4.9.8.0
+
+RM   = rm -f 
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = JWrap_private.res
+OBJ  = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS =  -L"/lib" -L"../commonjava"  -L"../util-core" -mwindows ../commonjava/CommonJava.a ../util-core/util-core.a
+INCS =  -I"/include"  -I"$(JDK)/include/win32"  -I"$(JDK)/include"  -I"../commonjava" -I"../util-core"
+CXXINCS = -g -I"/include/c++"  -I"/include/c++/mingw32"  -I"/include/c++/backward"  -I"/include"  -I"$(JDK)/include/win32"  -I"$(JDK)/include"  -I"../commonjava"  -I../util-core
+BIN  = JWrap.exe
+CXXFLAGS = $(CUSTOMFLAGS) $(CXXINCS) -DJDK="$(JDK)"
+CFLAGS = $(INCS) 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before JWrap.exe all-after 
+
+
+clean: clean-custom
+	$(RM) $(OBJ) $(BIN) JWrap_private.res
+
+$(BIN): $(LINKOBJ) ../commonjava/CommonJava.a
+	$(CPP) $(LINKOBJ) -o "JWrap.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+JWrap_private.res: JWrap_private.rc mainres.rc 
+	$(WINDRES) -i JWrap_private.rc -I rc -o JWrap_private.res -O coff 

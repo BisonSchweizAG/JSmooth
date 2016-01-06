@@ -1,0 +1,13 @@
+arguments=arg1 arg2 arg3
+mainclassname=Sample
+classpath=samplejar/sample.jar
+jvmsearch=javahome;registry;jrepath;jdkpath;exepath;jview
+minversion=1.1
+maxversion=
+currentdir=
+skel_Message=Java has not been found on your computer. Do you want to download it?
+skel_KeyPress=1
+javapropertiescount=1
+javaproperty_name_0=nom1
+javaproperty_value_0=valeur1
+skel_Debug=1

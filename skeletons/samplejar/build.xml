@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="dist" name="jsmooth-sample">
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="classes" value="classes"/>
+
+  <path id="build.class.path">
+    <pathelement path="../jnismooth/jnismooth.jar"/>
+  </path>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${classes}"/>
+  </target>
+
+  <target depends="init" name="compile">
+    <!-- Compile the java code from ${src} into ${classes} -->
+    <javac debug="true" deprecation="yes" destdir="${classes}" srcdir="${src}">
+       <classpath refid="build.class.path"/>
+    </javac>
+  </target>
+
+  <target depends="compile" name="dist">
+    <!-- Compile the java code from ${src} into ${classes} -->
+    <copy todir="classes" file="src/gnome-application-x-gzip.png"/>
+    <jar jarfile="sample.jar" basedir="classes"/>    
+    </target>
+
+  <target name="clean">
+    <delete dir="${classes}"/>
+  </target>
+</project>
