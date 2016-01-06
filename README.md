@@ -78,6 +78,6 @@ myapp.exe -Dmyprop=myvalue
 
 This will create a system property named `myprop` with the value `myvalue`.
 
-Any property previously defined will be overwritten.
+A previously defined property with the same name will be overwritten.
 
 For more documentation see the original [JSmooth](http://jsmooth.sourceforge.net/) project. 
