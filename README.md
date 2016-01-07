@@ -9,7 +9,7 @@ can download a JVM.
 
 This is a fork of [JSmooth 0.9.9-7](http://jsmooth.sourceforge.net/), with these additional features:
 - 64bit support.
-- Autodownload wrapper silent JRE installation from web/local file system with redirect support.
+- Autodownload wrapper enhancements.
 - VERSIONINFO support.
 - Custom Java home environment variable.
 - Pass Java system properties via command line.
@@ -36,7 +36,7 @@ To create a 64bit executable, use one of the new `x64` skeletons:
 
 A 64bit executable needs a 64bit JRE.
 
-### Autodownload wrapper silent JRE installation
+### Autodownload wrapper enhancements
 The `Autodownload Wrapper` skeleton has been enhanced:
 - The `DownloadURL` property may point to local file using the `file:` prefix. I.e. `file:myjre\jre.exe` (use backslash for path information).
 - The `DownloadURL` property may point to a file called `autodownload.redirect`.
@@ -45,8 +45,8 @@ The `Autodownload Wrapper` skeleton has been enhanced:
     url=http://mysite/jre.exe
     params=/s
     ```
-    
-    The URL can again point also a local file using the `file:` prefix.
+
+    The URL can again point also to a local file using the `file:` prefix.
 
 ### VERSIONINFO support
 
