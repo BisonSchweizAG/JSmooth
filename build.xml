@@ -20,6 +20,7 @@
   <property name="src" value="src"/>
   <property name="tmp" value="tmp"/>
   <property name="docs" value="docs"/>
+  <property name="javac_version" value="1.7"/>
 
   <property name="anttask-src" value="ant"/>
   <property name="classes" value="classes"/>
@@ -65,7 +66,7 @@
   <target depends="init" name="compile">
     <!-- Compile the java code from ${src} into ${classes} -->
     <echo>Compiling the application from ${src}</echo>
-    <javac target="1.8" source="1.8" deprecation="yes" destdir="${classes}" srcdir="${src}" debug="true">
+    <javac target="${javac_version}" source="${javac_version}" deprecation="yes" destdir="${classes}" srcdir="${src}" debug="true">
        <classpath refid="jsmooth.class.path"/>
     </javac>
   </target>
@@ -115,7 +116,7 @@
 
   <target depends="compile" name="anttask">
     <!-- Compile the java code from ${src} into ${classes} -->
-    <javac deprecation="yes" destdir="${classes}" srcdir="${anttask-src}" debug="true">
+    <javac target="${javac_version}" source="${javac_version}" deprecation="yes" destdir="${classes}" srcdir="${anttask-src}" debug="true">
        <classpath refid="anttask-compile.class.path"/>
     </javac>
     <unjar src="lib/jox116.jar" dest="${classes}"/>

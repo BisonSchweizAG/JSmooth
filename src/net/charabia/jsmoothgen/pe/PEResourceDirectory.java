@@ -1,21 +1,17 @@
 /*
-  JSmooth: a VM wrapper toolkit for Windows
-  Copyright (C) 2003 Rodrigo Reyes <reyes@charabia.net>
- 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
- 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
- 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- 
+ * JSmooth: a VM wrapper toolkit for Windows Copyright (C) 2003 Rodrigo Reyes <reyes@charabia.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program; if
+ * not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * 
  */
 
 /*
@@ -41,8 +37,9 @@ import java.util.Vector;
 public class PEResourceDirectory {
 
   /*
-   * typedef struct IMAGE_RESOURCE_DIRECTORY { uint32_t Characteristics; uint32_t TimeDateStamp; uint16_t MajorVersion; uint16_t
-   * MinorVersion; uint16_t NumberOfNamedEntries; uint16_t NumberOfIdEntries; }
+   * typedef struct IMAGE_RESOURCE_DIRECTORY { uint32_t Characteristics; uint32_t TimeDateStamp;
+   * uint16_t MajorVersion; uint16_t MinorVersion; uint16_t NumberOfNamedEntries; uint16_t
+   * NumberOfIdEntries; }
    */
 
   public class DataEntry {
@@ -70,8 +67,9 @@ public class PEResourceDirectory {
       CodePage = buf.getInt();
       Reserved = buf.getInt();
 
-      long datapos = PEResourceDirectory.this.m_master.PointerToRawData + (OffsetToData - PEResourceDirectory.this.m_master.VirtualAddress);
-      Data = ByteBuffer.allocate((int)Size);
+      long datapos = PEResourceDirectory.this.m_master.PointerToRawData
+          + (OffsetToData - PEResourceDirectory.this.m_master.VirtualAddress);
+      Data = ByteBuffer.allocate((int) Size);
       Data.order(ByteOrder.LITTLE_ENDIAN);
       chan.position(datapos);
       chan.read(Data);
@@ -81,8 +79,9 @@ public class PEResourceDirectory {
     }
 
     public int diskSize() {
-      int size = 16 + (int)this.Size;
-      if ((size % 4) > 0) size += 4 - (size % 4);
+      int size = 16 + (int) this.Size;
+      if ((size % 4) > 0)
+        size += 4 - (size % 4);
       return size;
     }
 
@@ -98,7 +97,7 @@ public class PEResourceDirectory {
       indent(level, out);
       out.print("Data={ ");
       for (int i = 0; i < this.Data.capacity(); i++) {
-        out.print("" + Integer.toHexString((byte)Data.get()) + ",");
+        out.print("" + Integer.toHexString(Data.get()) + ",");
       }
       out.println(" }");
 
@@ -110,20 +109,22 @@ public class PEResourceDirectory {
     }
 
     public int buildBuffer(ByteBuffer buffer, long virtualBaseOffset, int dataOffset) {
-      // System.out.println("Building Data Entry buffer @ " + buffer.position() + " (" + dataOffset + ")");
+      // System.out.println("Building Data Entry buffer @ " + buffer.position() + " (" + dataOffset
+      // + ")");
 
       dataOffset = buffer.position() + 16;
 
-      buffer.putInt((int)(dataOffset + virtualBaseOffset));
-      buffer.putInt((int)Size);
-      buffer.putInt((int)CodePage);
-      buffer.putInt((int)Reserved);
+      buffer.putInt((int) (dataOffset + virtualBaseOffset));
+      buffer.putInt((int) Size);
+      buffer.putInt((int) CodePage);
+      buffer.putInt((int) Reserved);
 
       Data.position(0);
       buffer.put(Data);
 
       dataOffset += Size;
-      if ((dataOffset % 4) > 0) dataOffset += (4 - (dataOffset % 4));
+      if ((dataOffset % 4) > 0)
+        dataOffset += (4 - (dataOffset % 4));
 
       return dataOffset;
     }
@@ -171,13 +172,13 @@ public class PEResourceDirectory {
       int val = buf.getInt();
       long offsetToData = buf.getInt();
       // System.out.println("Entry: Val=" + val);
-      // System.out.println("       Off=" + offsetToData);
+      // System.out.println(" Off=" + offsetToData);
 
       if (val < 0) {
         val &= 0x7FFFFFFF;
         Name = extractStringAt(chan, val);
         Id = -1;
-        // System.out.println("    String at " + val + " = " + Name);
+        // System.out.println(" String at " + val + " = " + Name);
       } else {
         Id = val;
       }
@@ -211,7 +212,7 @@ public class PEResourceDirectory {
       StringBuffer buf = new StringBuffer(size);
       for (int i = 0; i < size; i++) {
         int c = buffer.getShort();
-        buf.append((char)c);
+        buf.append((char) c);
       }
 
       chan.position(orgchanpos);
@@ -220,13 +221,16 @@ public class PEResourceDirectory {
 
     public int diskSize() {
       int size = 8;
-      if (Name != null) size += (Name.length() * 2) + 2;
+      if (Name != null)
+        size += (Name.length() * 2) + 2;
 
       if (Directory != null)
         size += Directory.diskSize();
-      else if (Data != null) size += Data.diskSize();
+      else if (Data != null)
+        size += Data.diskSize();
 
-      if ((size % 4) > 0) size += 4 - (size % 4);
+      if ((size % 4) > 0)
+        size += 4 - (size % 4);
       return size;
     }
 
@@ -253,17 +257,18 @@ public class PEResourceDirectory {
     }
 
     public int buildBuffer(ByteBuffer buffer, long virtualBaseOffset, int dataOffset) {
-      // System.out.println("Building Resource Entry buffer  " + Name + "/" + Id + " @ " + buffer.position() + " (" + dataOffset + ")");
+      // System.out.println("Building Resource Entry buffer " + Name + "/" + Id + " @ " +
+      // buffer.position() + " (" + dataOffset + ")");
       if (Name != null) {
-        buffer.putInt((int)(dataOffset | 0x80000000));
+        buffer.putInt(dataOffset | 0x80000000);
 
         int stringoffset = dataOffset;
         ByteBuffer strbuf = ByteBuffer.allocate(Name.length() * 2 + 2);
         strbuf.order(ByteOrder.LITTLE_ENDIAN);
 
-        strbuf.putShort((short)Name.length());
+        strbuf.putShort((short) Name.length());
         for (int i = 0; i < Name.length(); i++) {
-          strbuf.putShort((short)Name.charAt(i));
+          strbuf.putShort((short) Name.charAt(i));
         }
         strbuf.position(0);
 
@@ -271,14 +276,15 @@ public class PEResourceDirectory {
         buffer.position(dataOffset);
         buffer.put(strbuf);
         dataOffset += Name.length() * 2 + 2;
-        if ((dataOffset % 4) != 0) dataOffset += 4 - (dataOffset % 4);
-        buffer.position((int)oldpos);
+        if ((dataOffset % 4) != 0)
+          dataOffset += 4 - (dataOffset % 4);
+        buffer.position((int) oldpos);
       } else {
         buffer.putInt(Id);
       }
 
       if (Directory != null) {
-        buffer.putInt((int)(dataOffset | 0x80000000));
+        buffer.putInt(dataOffset | 0x80000000);
 
         int oldpos = buffer.position();
         buffer.position(dataOffset);
@@ -310,8 +316,7 @@ public class PEResourceDirectory {
     Vector NamedEntries = new Vector();
     Vector IdEntries = new Vector();
 
-    public ImageResourceDirectory() {
-    }
+    public ImageResourceDirectory() {}
 
     public ImageResourceDirectory(FileChannel chan) throws IOException {
       ByteBuffer header = ByteBuffer.allocate(16);
@@ -369,13 +374,13 @@ public class PEResourceDirectory {
       indent(level, out);
       out.println("Named Entries:");
       for (int i = 0; i < NumberOfNamedEntries; i++) {
-        ResourceEntry re = (ResourceEntry)NamedEntries.get(i);
+        ResourceEntry re = (ResourceEntry) NamedEntries.get(i);
         re.dump(out, level + 1);
       }
       indent(level, out);
       out.println("Id Entries:");
       for (int i = 0; i < NumberOfIdEntries; i++) {
-        ResourceEntry re = (ResourceEntry)IdEntries.get(i);
+        ResourceEntry re = (ResourceEntry) IdEntries.get(i);
         re.dump(out, level + 1);
       }
     }
@@ -388,15 +393,16 @@ public class PEResourceDirectory {
     public int diskSize() {
       int size = 16;
       for (int i = 0; i < this.NamedEntries.size(); i++) {
-        ResourceEntry re = (ResourceEntry)NamedEntries.get(i);
+        ResourceEntry re = (ResourceEntry) NamedEntries.get(i);
         size += re.diskSize();
       }
       for (int i = 0; i < this.IdEntries.size(); i++) {
-        ResourceEntry re = (ResourceEntry)IdEntries.get(i);
+        ResourceEntry re = (ResourceEntry) IdEntries.get(i);
         size += re.diskSize();
       }
 
-      if ((size % 4) > 0) size += 4 - (size % 4);
+      if ((size % 4) > 0)
+        size += 4 - (size % 4);
 
       return size;
     }
@@ -404,22 +410,22 @@ public class PEResourceDirectory {
     public int buildBuffer(ByteBuffer buffer, long virtualBaseOffset) {
       // System.out.println("Building Directory Entry buffer @ " + buffer.position());
 
-      buffer.putInt((int)this.Characteristics);
-      buffer.putInt((int)this.TimeDateStamp);
-      buffer.putShort((short)this.MajorVersion);
-      buffer.putShort((short)this.MinorVersion);
-      buffer.putShort((short)this.NamedEntries.size());
-      buffer.putShort((short)this.IdEntries.size());
+      buffer.putInt((int) this.Characteristics);
+      buffer.putInt((int) this.TimeDateStamp);
+      buffer.putShort((short) this.MajorVersion);
+      buffer.putShort((short) this.MinorVersion);
+      buffer.putShort((short) this.NamedEntries.size());
+      buffer.putShort((short) this.IdEntries.size());
 
       int dataOffset = buffer.position() + (NamedEntries.size() * 8) + (IdEntries.size() * 8);
 
       for (int i = 0; i < this.NamedEntries.size(); i++) {
-        ResourceEntry re = (ResourceEntry)this.NamedEntries.get(i);
+        ResourceEntry re = (ResourceEntry) this.NamedEntries.get(i);
         dataOffset = re.buildBuffer(buffer, virtualBaseOffset, dataOffset);
       }
 
       for (int i = 0; i < this.IdEntries.size(); i++) {
-        ResourceEntry re = (ResourceEntry)this.IdEntries.get(i);
+        ResourceEntry re = (ResourceEntry) this.IdEntries.get(i);
         dataOffset = re.buildBuffer(buffer, virtualBaseOffset, dataOffset);
       }
 
@@ -433,10 +439,10 @@ public class PEResourceDirectory {
       // lowest integer id entry.
       if (name == null) {
         if (NamedEntries.size() > 0) {
-          return (PEResourceDirectory.ResourceEntry)NamedEntries.get(0);
+          return (PEResourceDirectory.ResourceEntry) NamedEntries.get(0);
         }
         if (IdEntries.size() > 0) {
-          return (PEResourceDirectory.ResourceEntry)IdEntries.get(0);
+          return (PEResourceDirectory.ResourceEntry) IdEntries.get(0);
         }
         return null;
       }
@@ -452,7 +458,7 @@ public class PEResourceDirectory {
       }
 
       for (Iterator i = this.NamedEntries.iterator(); i.hasNext();) {
-        ResourceEntry re = (ResourceEntry)i.next();
+        ResourceEntry re = (ResourceEntry) i.next();
         if (name.equals(re.Name)) {
           return re;
         }
@@ -462,7 +468,7 @@ public class PEResourceDirectory {
 
     public ResourceEntry getResourceEntry(int id) {
       for (Iterator i = this.IdEntries.iterator(); i.hasNext();) {
-        ResourceEntry re = (ResourceEntry)i.next();
+        ResourceEntry re = (ResourceEntry) i.next();
         if (id == re.Id) {
           return re;
         }
@@ -492,10 +498,11 @@ public class PEResourceDirectory {
 
   public void init() throws IOException {
     // / System.out.println("RESOURCE INIT");
-    // System.out.println("   Offset: " + m_master.PointerToRawData);
+    // System.out.println(" Offset: " + m_master.PointerToRawData);
     FileChannel chan = m_file.getChannel();
     chan.position(m_master.PointerToRawData);
-    PEResourceDirectory.ImageResourceDirectory dir = new PEResourceDirectory.ImageResourceDirectory(chan);
+    PEResourceDirectory.ImageResourceDirectory dir =
+        new PEResourceDirectory.ImageResourceDirectory(chan);
     // System.out.println("-----------------\nDUMP\n---------------");
     m_root = dir;
 
@@ -540,8 +547,13 @@ public class PEResourceDirectory {
     return false;
   }
 
-  public boolean replaceResource(String catId, int resourceId, int langId, ByteBuffer data) {
-    return replaceResource(catId, resourceId, langId, ignored -> data);
+  public boolean replaceResource(String catId, int resourceId, int langId, final ByteBuffer data) {
+    return replaceResource(catId, resourceId, langId, new Replacer() {
+      @Override
+      public ByteBuffer replace(ByteBuffer source) {
+        return data;
+      }
+    });
   }
 
   public interface Replacer {
