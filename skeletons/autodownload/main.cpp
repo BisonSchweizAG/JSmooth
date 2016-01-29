@@ -251,6 +251,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 	bool singleProcess = globalResMan->getBooleanProperty("skel_SingleProcess");
 
 	int tries = 0;
+	int exitCode = 0;
 	while (true) {
 
 		if (tries > 0) {
@@ -264,6 +265,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 		man->setPreferDLL(singleProcess);
 
 		bool ok = man->run();
+		exitCode = man->getExitCode();
 		delete man;
 
 		if (ok) {
@@ -320,6 +322,5 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 	DEBUG("NORMAL EXIT");
 	DEBUGWAITKEY();
 
-	/* The program return-value is 0 - The value that PostQuitMessage() gave */
-	return 0;
+	return exitCode;
 }

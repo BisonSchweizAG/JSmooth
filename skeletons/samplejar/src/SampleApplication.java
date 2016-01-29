@@ -103,19 +103,19 @@ public class SampleApplication extends javax.swing.JFrame
 	private void formWindowClosed(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosed
 	{//GEN-HEADEREND:event_formWindowClosed
 		// Add your handling code here:
-		System.exit(0);
+		System.exit(1);
 	}//GEN-LAST:event_formWindowClosed
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
 	{//GEN-HEADEREND:event_jButton1ActionPerformed
 		// Add your handling code here:
-		System.exit(0);
+		System.exit(2);
 	}//GEN-LAST:event_jButton1ActionPerformed
 	
 	/** Exit the Application */
 	private void exitForm(java.awt.event.WindowEvent evt)//GEN-FIRST:event_exitForm
 	{
-		System.exit(0);
+		System.exit(3);
 	}//GEN-LAST:event_exitForm
 	
 	/**
