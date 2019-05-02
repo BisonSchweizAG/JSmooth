@@ -69,7 +69,7 @@ void loadLanguage(string jreMinVersion) {
 		MSG_ERROR_NO_JAVA = "Java Laufzeit Umgebung konnte nicht gefunden werden. Bitte wenden sie sich an ihren System Administrator.";
 		MSG_DOWNLOADING_JAVA = "Java runterladen";
 		MSG_DOWNLOADING_JAVA_WAIT = "Java wird runtergeladen...";
-		MSG_ERROR_NO_JAVA_FIRST = "Java Laufzeit Umgebung " + jreMinVersion + " oder grösser konnte nicht gefunden werden. Drücken sie OK um mit der Installation zu beginnen.";
+		MSG_ERROR_NO_JAVA_FIRST = "Java Laufzeit Umgebung " + jreMinVersion + " oder grï¿½sser konnte nicht gefunden werden. Drï¿½cken sie OK um mit der Installation zu beginnen.";
 		APP_TITLE = "Java Laufzeit Umgebung installieren";
 	}
 	else {
@@ -114,6 +114,27 @@ void _debugWaitKey()
 {
 	if (DEBUGCONSOLE != 0)
 		DEBUGCONSOLE->waitKey();
+}
+
+void execWait(const std::string& file, const std::string& params) {
+	SHELLEXECUTEINFO lpExecInfo;
+	lpExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+	lpExecInfo.lpFile = file.c_str();
+	lpExecInfo.lpVerb = "open";
+	lpExecInfo.lpParameters = params.c_str();
+	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
+	lpExecInfo.hwnd = NULL;
+	lpExecInfo.lpDirectory = NULL;
+	lpExecInfo.nShow = SW_SHOW;
+	lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;
+	ShellExecuteEx(&lpExecInfo);
+
+	// wait until process terminates
+	if (lpExecInfo.hProcess != NULL)
+	{
+		::WaitForSingleObject(lpExecInfo.hProcess, INFINITE);
+		::CloseHandle(lpExecInfo.hProcess);
+	}
 }
 
 string doDownload(string url, string &outParams) {
@@ -315,7 +336,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 		}
 		else // anything else, we try to open it like a document
 		{
-			ShellExecute(0, "open", file.c_str(), adParams.c_str(), "", 0);
+			execWait(file, adParams);
 		}
 	}
 

@@ -88,3 +88,7 @@ This will create a system property named `myprop` with the value `myvalue`.
 
 A previously defined property with the same name will be overwritten.
 
+## Build
+- Download Apache Ant
+- In `build.xml`, Change paths to mingw and jre to match your environment
+- In a shell, call `ant dist` (running Ant task from inside Eclipse did not work)
